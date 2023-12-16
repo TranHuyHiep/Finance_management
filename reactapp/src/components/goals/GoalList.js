@@ -39,11 +39,11 @@ export default function GoalList() {
             <Table verticalSpacing="lg">
                 <thead>
                     <tr>
-                        <th><Text c="dimmed">NAME</Text></th>
-                        <th><Text c="dimmed">TARGET DATE</Text></th>
-                        <th><Text c="dimmed">TARGET AMOUNT</Text></th>
-                        <th><Text c="dimmed">STATUS</Text></th>
-                        <th><Text c="dimmed">EDIT</Text></th>
+                        <th><Text c="dimmed">TÊN</Text></th>
+                        <th><Text c="dimmed">NGÀY MỤC TIÊU</Text></th>
+                        <th><Text c="dimmed">SỐ TIỀN</Text></th>
+                        <th><Text c="dimmed">TRẠNG THÁI</Text></th>
+                        <th><Text c="dimmed">CHỈNH SỬA</Text></th>
                     </tr>
                 </thead>
                 <tbody>{rows}</tbody>

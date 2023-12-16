@@ -29,7 +29,7 @@ export default function AccountList() {
                     </Grid>
                     <Grid>
                         <Grid.Col span={"content"}>
-                            <Text style={{marginTop: 20}}>Total Available Balance</Text>
+                            <Text style={{marginTop: 20}}>Tổng số dư khả dụng</Text>
                             <Badge variant="filled" size={"xl"}><Text
                                          fw={700}>{element.currentBalance.toLocaleString('en-US')} VND</Text></Badge>
                         </Grid.Col>
@@ -85,8 +85,8 @@ export default function AccountList() {
             )}
             {isMobile ? (
                 <div>
-                    <Text fw={"700"} style={{marginBottom:3,marginTop:28}}>Your Accounts</Text>
-                    <Text fz={"xs"} style={{marginBottom:10}}>Accounts with the current balance</Text>
+                    <Text fw={"700"} style={{marginBottom:3,marginTop:28}}>Tài khoản của bạn</Text>
+                    <Text fz={"xs"} style={{marginBottom:10}}>Tài khoản với số dư hiện tại</Text>
                     <div>{rows}</div>
                 </div>
             ) : (

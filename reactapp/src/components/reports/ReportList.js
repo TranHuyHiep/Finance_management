@@ -22,18 +22,18 @@ export default function ReportList() {
             saveAs(response.data, `TransactionReport_${date.toLocaleDateString()}.xlsx`);
             setTransactionReportLoading(false)
             notifications.show({
-                title: 'Started downloading...',
-                message: 'see your downloads!!',
+                title: 'Bắt đầu tải xuống...',
+                message: 'xem file tải xuống của bạn!!',
                 icon: <SuccessIcon />,
                 radius:"lg",
                 autoClose: 5000,
             })
         } catch (error) {
-            console.error('Error downloading Excel file:', error);
+            console.error('Lỗi tải file excel:', error);
             setTransactionReportLoading(false)
             notifications.show({
                 title: error.message,
-                message: 'Please try again!!',
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,

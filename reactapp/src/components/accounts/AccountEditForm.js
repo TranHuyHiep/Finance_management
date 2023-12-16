@@ -28,13 +28,13 @@ export default function AccountEditForm(props) {
         },
         validate: {
             name: (value) => (
-                value !== '' ? null : 'Name is required'
+                value !== '' ? null : 'Yêu cầu nhập tên'
             ),
             currentBalance: (value) => (
-                value !== '' ? null : 'Enter currentBalance if your account'
+                value !== '' ? null : 'Nhập số dư hiện tại của tài khoản'
             ),
             paymentTypes: (value) => (
-                value !== '' ? null : 'Select at least one type'
+                value !== '' ? null : 'Chọn ít nhất 1 loại'
             ),
         }
     });
@@ -80,39 +80,38 @@ export default function AccountEditForm(props) {
                 <form onSubmit={form.onSubmit((values) => handleUpdate())}>
                     <TextInput radius="md" style={{ marginTop: 16 }}
                                withAsterisk
-                               label="Name"
-                               placeholder="Ex: State Bank of India"
+                               label="Tên tài khoản"
+                               placeholder="Vd: Ngân hàng BIDV"
                                type='text'
                                {...form.getInputProps('name')}
                     />
                     <TextInput radius="md" style={{ marginTop: 16 }}
                                withAsterisk
-                               label="Balance"
-                               placeholder="Ex: 5,000"
+                               label="Số tiền hiện có"
+                               placeholder="VD: 2.000.000"
                                type='number'
                                {...form.getInputProps('currentBalance')}
                     />
                     <Checkbox.Group style={{marginTop:16}}
                                     {...form.getInputProps('paymentTypes')}
-                                    label="Payment Type"
+                                    label="Phương thức thanh toán"
                                     withAsterisk
                     >
                         <Group style={{marginTop:10}} mt="xs">
-                            <Checkbox  value="UPI" label="UPI" />
-                            <Checkbox  value="Debit Card" label="Debit Card" />
-                            <Checkbox  value="Credit Card" label="Credit Card" />
-                            <Checkbox  value="Net Banking" label="Net Banking" />
+                            <Checkbox  value="Tiền mặt" label="Tiền mặt" />
+                            <Checkbox  value="Thanh toán online" label="Thanh toán online" />
+                            <Checkbox  value="Thẻ tín dụng" label="Thẻ tín dụng" />
                         </Group>
                     </Checkbox.Group>
                     <Grid style={{marginTop:16,marginBottom:8}} gutter={5} gutterXs="md" gutterMd="xl" gutterXl={50}>
                         <Grid.Col span={"auto"}>
-                            <Button radius="md" color="red" fullWidth onClick={() => setShowDiscard(true)} >Delete</Button>
+                            <Button radius="md" color="red" fullWidth onClick={() => setShowDiscard(true)} >Xoá</Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
-                            <Button radius="md" variant={"default"} onClick={() => handleCancel()} fullWidth>Cancel</Button>
+                            <Button radius="md" variant={"default"} onClick={() => handleCancel()} fullWidth>Huỷ bỏ</Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
-                            <Button radius="md" fullWidth type="submit">Save</Button>
+                            <Button radius="md" fullWidth type="submit">Lưu</Button>
                         </Grid.Col>
                     </Grid>
                 </form>
@@ -123,17 +122,17 @@ export default function AccountEditForm(props) {
                     blur: 3,
                 }}
                 size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Confirm Delete">
-                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>This will delete this account.</Text>
+                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>Xác nhận xoá tài khoản.</Text>
                 <Grid
                 >
                     <Grid.Col span={"auto"}>
                         <Button radius="md" color="gray" fullWidth  onClick={() => setShowDiscard(false)}>
-                            No, Cancel
+                            Không, huỷ bỏ
                         </Button>
                     </Grid.Col>
                     <Grid.Col span={"auto"}>
                         <Button color={"red"} onClick={()=> handleDelete()} radius="md" fullWidth type="submit">
-                            Yes, Delete
+                            Có, xác nhận xoá
                         </Button>
                     </Grid.Col>
                 </Grid>

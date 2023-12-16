@@ -11,11 +11,11 @@ export default function BudgetHeader() {
             <div style={{marginBottom:10}}>
                 <Grid>
                     <Grid.Col span={"content"}>
-                        <Title style={{ margin: 5 }} order={2}>Budgets</Title>
+                        <Title style={{ margin: 5 }} order={2}>Ngân sách</Title>
                     </Grid.Col>
                     <Grid.Col span={"content"}>
                         <Button fullWidth radius="md" onClick={()=> dispatch(showBudgetForm())} style={{margin:8}}>
-                            Add Budget
+                            Thêm ngân sách
                         </Button>
                     </Grid.Col>
                 </Grid>

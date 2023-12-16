@@ -42,7 +42,7 @@ export default function BudgetList() {
                             radius="xl"
                             size="sm"
                         />
-                        <Text style={{marginTop:8,fontSize:10}}>{`Balance left to spend  ${element.balance.toLocaleString('en-US')} VND in ${element.amount.toLocaleString('en-US')} VND`}</Text>
+                        <Text style={{marginTop:8,fontSize:10}}>{`Số dư còn lại để chi tiêu  ${element.balance.toLocaleString('en-US')} VND in ${element.amount.toLocaleString('en-US')} VND`}</Text>
                     </Grid.Col>
                 </Grid>
             </div>
@@ -101,8 +101,8 @@ export default function BudgetList() {
             )}
             {isMobile ? (
                 <div>
-                    <Text fw={"700"} style={{marginBottom:3,marginTop:28}}>This month</Text>
-                    <Text fz={"xs"} style={{marginBottom:10}}>All your Budget spending based on this month</Text>
+                    <Text fw={"700"} style={{marginBottom:3,marginTop:28}}>Tháng này</Text>
+                    <Text fz={"xs"} style={{marginBottom:10}}>Tất cả các khoản chi dựa trên ngân sách của bạn trong tháng này</Text>
                     <div>{rows}</div>
                 </div>
             ) : (
@@ -110,19 +110,19 @@ export default function BudgetList() {
                     <thead>
                     <tr>
                         <th>
-                            <Text c="dimmed">CATEGORY</Text>
+                            <Text c="dimmed">THỂ LOẠI</Text>
                         </th>
                         <th>
-                            <Text c="dimmed">BUDGET</Text>
+                            <Text c="dimmed">NGÂN SÁCH</Text>
                         </th>
                         <th>
-                            <Text c="dimmed">USED AMOUNT</Text>
+                            <Text c="dimmed">SỐ LƯỢNG ĐÃ SỬ DỤNG</Text>
                         </th>
                         <th>
-                            <Text c="dimmed">BALANCE LEFT</Text>
+                            <Text c="dimmed">CÒN LẠI</Text>
                         </th>
                         <th>
-                            <Text c="dimmed">EDIT</Text>
+                            <Text c="dimmed">CHỈNH SỬA</Text>
                         </th>
                     </tr>
                     </thead>

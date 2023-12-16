@@ -18,13 +18,13 @@ export default function GoalFeature() {
                 <Grid.Col span={"content"}>
                     <Paper miw={"200px"}radius="md" p="md" withBorder>
                         <Text size={"lg"} fw={700}>{goalList.length}</Text>
-                        <Text size={"sm"} fw={700} c="dimmed">TOTAL GOALS</Text>
+                        <Text size={"sm"} fw={700} c="dimmed">TỔNG MỤC TIÊU</Text>
                     </Paper>
                 </Grid.Col>
                 <Grid.Col span={"content"}>
                     <Paper miw={"200px"} radius="md" p="md" withBorder>
                         <Text size={"lg"} style={{color:"#F03C2E"}} fw={700}>{pendingGoals()}</Text>
-                        <Text size={"sm"} fw={700} c="dimmed">PENDING GOALS</Text>
+                        <Text size={"sm"} fw={700} c="dimmed">MỤC TIÊU ĐANG CHỜ</Text>
                     </Paper>
                 </Grid.Col>
             </Grid>

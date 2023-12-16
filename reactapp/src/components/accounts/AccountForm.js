@@ -26,13 +26,13 @@ export default function AccountForm(props) {
         },
         validate: {
             name: (value) => (
-                value !== '' ? null : 'Name is required'
+                value !== '' ? null : 'Yêu cầu nhập tên'
             ),
             currentBalance: (value) => (
-                value !== '' ? null : 'Enter currentBalance if your account'
+                value !== '' ? null : 'Nhập số hiện tại'
             ),
             paymentTypes: (value) => (
-                value !== '' ? null : 'Select at least one type'
+                value !== '' ? null : 'Chọn ít nhất 1 phương thức thanh toán'
             ),
         }
     });
@@ -60,41 +60,40 @@ export default function AccountForm(props) {
             blur: 3,
         }} withCloseButton={false} closeOnClickOutside={false} radius="lg" size="sm" opened={props.open} onClose={() => { props.close() }} centered>
             <LoadingOverlay visible={addAccountInProcess} overlayBlur={2} />
-            <Title style={{ marginLeft: 10 }} order={3}>Add Account</Title>
+            <Title style={{ marginLeft: 10 }} order={3}>Thêm tài khoản</Title>
             <Container size="md">
                 <form onSubmit={form.onSubmit((values) => handleSubmit())}>
                     <TextInput radius="md" style={{ marginTop: 16 }}
                         withAsterisk
-                        label="Name"
-                        placeholder="Ex: State Bank of India"
+                        label="Tên tài khoản"
+                        placeholder="VD: Ngân hàng BIDV"
                         type='text'
                         {...form.getInputProps('name')}
                     />
                     <TextInput radius="md" style={{ marginTop: 16 }}
                         withAsterisk
-                        label="Balance"
-                        placeholder="Ex: 5,000"
+                        label="Số dư"
+                        placeholder="VD: 2,000,000"
                         type='number'
                         {...form.getInputProps('currentBalance')}
                     />
                     <Checkbox.Group style={{marginTop:16}}
                         {...form.getInputProps('paymentTypes')}
-                        label="Payment Type"
+                        label="Phương thức thanh toán"
                         withAsterisk
                     >
                         <Group style={{marginTop:10}} mt="xs">
-                            <Checkbox  value="UPI" label="UPI" />
-                            <Checkbox  value="Debit Card" label="Debit Card" />
-                            <Checkbox  value="Credit Card" label="Credit Card" />
-                            <Checkbox  value="Net Banking" label="Net Banking" />
+                            <Checkbox  value="Tiền mặt" label="Tiền mặt" />
+                            <Checkbox  value="Thanh toán online" label="Thanh toán online" />
+                            <Checkbox  value="Thẻ tín dụng" label="Thẻ tín dụng" />
                         </Group>
                     </Checkbox.Group>
                     <Grid style={{marginTop:16,marginBottom:8}} gutter={5} gutterXs="md" gutterMd="xl" gutterXl={50}>
                         <Grid.Col span={"auto"}>
-                        <Button radius="md" variant={"default"} onClick={() => setShowDiscard(true)} fullWidth>Discard</Button>
+                        <Button radius="md" variant={"default"} onClick={() => setShowDiscard(true)} fullWidth>Huỷ bỏ</Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
-                        <Button radius="md" fullWidth type="submit">Save</Button>
+                        <Button radius="md" fullWidth type="submit">Lưu</Button>
                         </Grid.Col>
                     </Grid>
                 </form>
@@ -104,18 +103,18 @@ export default function AccountForm(props) {
                     color: "red",
                     blur: 3,
                 }}
-                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Confirm Discard">
-                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>You will lose all the content you entered</Text>
+                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Xác nhận huỷ bỏ">
+                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>Bạn sẽ mất toàn bộ nội dung đã nhập</Text>
                 <Grid
                 >
                     <Grid.Col span={"auto"}>
                         <Button radius="md" color="gray" fullWidth  onClick={() => setShowDiscard(false)}>
-                            No
+                            Không
                         </Button>
                     </Grid.Col>
                     <Grid.Col span={"auto"}>
                         <Button color={"red"} onClick={()=> handleDiscard()} radius="md" fullWidth type="submit">
-                            Yes
+                            Có
                         </Button>
                     </Grid.Col>
                 </Grid>

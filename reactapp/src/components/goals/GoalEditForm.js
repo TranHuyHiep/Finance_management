@@ -27,21 +27,22 @@ export default function GoalEditForm(props){
         },
         validate: {
             name: (value) => (
-                value !== '' ? null : 'Name is required'
+                value !== '' ? null : 'Yêu cầu nhập tên'
             ),
             targetAmount: (value) => (
-                value !== '' ? null : 'Target Amount is required'
+                value !== '' ? null : 'Nhập số tiền của mục tiêu muốn đạt'
             )
         }
     });
-    useEffect(()=>{
-        form.setFieldValue('name',props?.element?.name)
-        form.setFieldValue('description',props?.element?.description)
-        form.setFieldValue('targetAmount',props?.element?.targetAmount)
-        const date = new Date(props?.element?.targetDate)
-        form.setFieldValue('targetDate',date)
-        form.setFieldValue('status',props?.element?.status)
-    },[form, props?.element?.description, props?.element?.name, props?.element?.status, props?.element?.targetAmount, props?.element?.targetDate])
+    useEffect(() => {
+        form.setFieldValue('name', props?.element?.name);
+        form.setFieldValue('description', props?.element?.description);
+        form.setFieldValue('targetAmount', props?.element?.targetAmount);
+        const date = new Date(props?.element?.targetDate);
+        form.setFieldValue('targetDate', date);
+        form.setFieldValue('status', props?.element?.status);
+    }, [props?.element?.description, props?.element?.name, props?.element?.status, props?.element?.targetAmount, props?.element?.targetDate]);
+    
     async function handleSubmit(){
         await dispatch(editGoal({...form.values,goalId:props.element.id,token:token,targetDate:form.values.targetDate.getTime()}))
         await dispatch(fetchGoal({token:token}))
@@ -64,51 +65,51 @@ export default function GoalEditForm(props){
             blur: 3,
         }} radius="lg" withCloseButton={false} closeOnClickOutside={false} size="sm" opened={props.open} onClose={() => { props.close() }} centered>
             <LoadingOverlay visible={addGoalInProcess} overlayBlur={2}/>
-            <Title style={{ marginLeft: 10 }} order={3}>Edit Goal</Title>
+            <Title style={{ marginLeft: 10 }} order={3}>Sửa mục tiêu</Title>
             <Container size="md">
                 <form onSubmit={form.onSubmit((values) => handleSubmit())}>
                     <TextInput radius="md" style={{ marginTop: 16 }}
                                withAsterisk
-                               label="Name"
-                               placeholder="Ex: Emergency Fund"
+                               label="Tên"
+                               placeholder="VD: Cưới vợ"
                                type='Goal Name'
                                {...form.getInputProps('name')}
                     />
                     <TextInput radius="md" style={{ marginTop: 16 }}
-                               label="Description"
-                               placeholder="Ex: For a backup"
+                               label="Mô tả"
+                               placeholder="VD: Làm 100 mâm cỗ"
                                type='description'
                                {...form.getInputProps('description')}
                     />
                     <TextInput radius="md" style={{ marginTop: 16 }}
                                withAsterisk
-                               label="Target Amount"
-                               placeholder="Ex: 50,000"
+                               label="Số lượng của mục tiêu"
+                               placeholder="VD: 100.000.000"
                                type='amount'
                                {...form.getInputProps('targetAmount')}
                     />
                     <DatePickerInput
                         radius="md"
                         style={{marginTop: 16}}
-                        label="Target Date"
+                        label="Ngày mục tiêu"
                         {...form.getInputProps('targetDate')}
                     />
                     <Select radius="md" style={{ marginTop: 16 }}
-                            label="Status"
+                            label="Trạng thái"
                             withAsterisk
-                            placeholder="Select Account"
-                            data={[{value:"Pending",label:"Pending"},{value:"Completed",label:"Completed"}]}
+                            placeholder="Chọn tài khoản"
+                            data={[{value:"Pending",label:"Chờ xử lý"},{value:"Completed",label:"Đã hoàn thành"}]}
                             {...form.getInputProps('status')}
                     />
                     <Grid style={{marginTop:16,marginBottom:8}} gutter={5} gutterXs="md" gutterMd="xl" gutterXl={50}>
                         <Grid.Col span={"auto"}>
-                            <Button radius="md" color="red" fullWidth onClick={() => setShowDelete(true)} >Delete</Button>
+                            <Button radius="md" color="red" fullWidth onClick={() => setShowDelete(true)} >Xoá bỏ</Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
-                            <Button radius="md" variant={"default"} fullWidth onClick={() => props.close()}>Cancel</Button>
+                            <Button radius="md" variant={"default"} fullWidth onClick={() => props.close()}>Huỷ bỏ</Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
-                            <Button radius="md" fullWidth type="submit">Save</Button>
+                            <Button radius="md" fullWidth type="submit">Lưu</Button>
                         </Grid.Col>
                     </Grid>
                 </form>
@@ -118,18 +119,18 @@ export default function GoalEditForm(props){
                     color: "red",
                     blur: 3,
                 }}
-                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDelete} onClose={() => setShowDelete(false)} radius="lg" centered  withCloseButton={false} title="Confirm Delete">
-                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>This will delete this Goal.</Text>
+                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDelete} onClose={() => setShowDelete(false)} radius="lg" centered  withCloseButton={false} title="Xác nhận xoá">
+                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>Xác nhận xoá mục tiêu đang chọn này.</Text>
                 <Grid
                 >
                     <Grid.Col span={"auto"}>
                         <Button radius="md" variant={"default"} fullWidth  onClick={() => setShowDelete(false)}>
-                            No, Cancel
+                            Không, huỷ bỏ
                         </Button>
                     </Grid.Col>
                     <Grid.Col span={"auto"}>
                         <Button color={"red"} onClick={()=> handleDelete()} radius="md" fullWidth type="submit">
-                            Yes, Delete
+                            Có, xoá bỏ
                         </Button>
                     </Grid.Col>
                 </Grid>

@@ -58,7 +58,7 @@ export default function TransactionList() {
                    </Grid.Col>
                    <Grid.Col span="auto">
                        {category.type === "income" ?
-                           <Text fw={700} fz="md">Received from: {<Badge color="green">{category.name}</Badge>}</Text>  : <Text fw={700} fz="md">Spent on: {<Badge  color="red">{category.name}</Badge>}</Text>}
+                           <Text fw={700} fz="md">Thu từ: {<Badge color="green">{category.name}</Badge>}</Text>  : <Text fw={700} fz="md">Chi cho: {<Badge  color="red">{category.name}</Badge>}</Text>}
                    </Grid.Col>
                </Grid>
            </div>
@@ -158,7 +158,7 @@ export default function TransactionList() {
             {isMobile ? (
                 <div>
                     <Text fw={"700"} style={{marginBottom:3,marginTop:10}}>History</Text>
-                    <Text fz={"xs"} style={{marginBottom:10}}>Recent transactions from all your accounts</Text>
+                    <Text fz={"xs"} style={{marginBottom:10}}>Những giao dịch gần đây của tất cả tài khoản của bạn</Text>
                     <div>{rows}</div>
                 </div>
             ) : (
@@ -167,26 +167,26 @@ export default function TransactionList() {
                     <tr>
                         <th>
                             <Text fw={700} c="dimmed">
-                                DATE & TIME
+                                NGÀY VÀ GIỜ
                             </Text>
                         </th>
                         <th>
                             <Text fw={700} c="dimmed">
-                                TRANSACTION DETAILS
+                                CHI TIẾT GIAO DỊCH
                             </Text>
                         </th>
                         <th>
                             <Text fw={700} c="dimmed">
-                                ACCOUNT DETAILS
+                                CHI TIẾT TÀI KHOẢN
                             </Text>
                         </th>
                         <th>
                             <Text fw={700} c="dimmed">
-                                AMOUNT
+                                SỐ LƯỢNG
                             </Text>
                         </th>
                         <th>
-                            <Text c="dimmed">EDIT</Text>
+                            <Text c="dimmed">CHỈNH SỬA</Text>
                         </th>
                     </tr>
                     </thead>

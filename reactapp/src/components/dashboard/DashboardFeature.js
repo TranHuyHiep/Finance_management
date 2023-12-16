@@ -58,7 +58,7 @@ export default function  DashboardFeture(){
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={6} sm={6} md={3}>
-                        <Text size={"xl"} fw={700}>{`${pendingGoals()} / ${goalList.length}`}</Text>
+                        <Text size={"xl"} fw={700}>{`${goalList.length - pendingGoals()} / ${goalList.length}`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
                             MỤC TIÊU ĐÃ ĐẠT ĐƯỢC
                         </Text>

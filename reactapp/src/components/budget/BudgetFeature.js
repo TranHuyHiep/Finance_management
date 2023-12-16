@@ -28,7 +28,7 @@ export default function BudgetFeature(){
                     <Paper miw={"180px"}radius="md" p="md" withBorder>
                     <Text size={"lg"} fw={700}>{`${handleTotalBudget()} VND`}</Text>
                     <Text size={"sm"} fw={700} c="dimmed" >
-                        TOTAL BUDGET
+                        TỔNG NGÂN SÁCH
                     </Text>
                 </Paper>
                 </Grid.Col>
@@ -36,7 +36,7 @@ export default function BudgetFeature(){
                     <Paper miw={"180px"} radius="md" p="md" withBorder>
                     <Text size={"lg"} fw={700}>{`${handleTotalUsed()} VND`}</Text>
                     <Text size={"sm"} fw={700} c="dimmed" ta="bottom">
-                        TOTAL USED
+                        TỔNG ĐÃ SỬ DỤNG
                     </Text>
                 </Paper>
                 </Grid.Col>
@@ -44,7 +44,7 @@ export default function BudgetFeature(){
                     <Paper miw={"180px"} radius="md" p="md" withBorder>
                         <Text size={"lg"} fw={700} style={{color: "#26AB35"}}>{`${handleTotalLeft()} VND`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed" ta="bottom">
-                            TOTAL LEFT
+                            TỔNG CÒN LẠI
                         </Text>
                     </Paper>
                 </Grid.Col>

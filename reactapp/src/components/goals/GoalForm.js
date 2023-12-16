@@ -27,10 +27,10 @@ export default function GoalForm(props){
         },
         validate: {
             name: (value) => (
-                value !== '' ? null : 'Name is required'
+                value !== '' ? null : 'Yêu cầu nhập tên'
             ),
             targetAmount: (value) => (
-                value !== '' ? null : 'Target Amount is required'
+                value !== '' ? null : 'Nhập số tiền của mục tiêu'
             )
         }
     });
@@ -57,41 +57,41 @@ export default function GoalForm(props){
             blur: 3,
         }} radius="lg" size="sm" opened={props.open} onClose={() => { props.close() }} centered>
             <LoadingOverlay visible={addGoalInProcess} overlayBlur={2}/>
-            <Title style={{ marginLeft: 10 }} order={3}>Add Goal</Title>
+            <Title style={{ marginLeft: 10 }} order={3}>Thêm mục tiêu</Title>
             <Container size="md">
                 <form onSubmit={form.onSubmit((values) => handleSubmit())}>
                     <TextInput radius="md" style={{ marginTop: 16 }}
                         withAsterisk
-                        label="Name"
-                        placeholder="Ex: Emergency Fund"
+                        label="Tên"
+                        placeholder="VD: Cưới vợ"
                         type='Goal Name'
                         {...form.getInputProps('name')}
                     />
                     <TextInput radius="md" style={{ marginTop: 16 }}
-                        label="Description"
-                        placeholder="Ex: For a backup"
+                        label="Mô tả"
+                        placeholder="VD: 100 mâm cỗ"
                         type='description'
                         {...form.getInputProps('description')}
                     />
                     <TextInput radius="md" style={{ marginTop: 16 }}
                         withAsterisk
-                        label="Target Amount"
-                        placeholder="Ex: 50,000"
+                        label="Số tiền"
+                        placeholder="VD: 100.000.000"
                         type='amount'
                         {...form.getInputProps('targetAmount')}
                     />
                     <DatePickerInput
                         radius="md"
                         style={{marginTop: 16}}
-                        label="Target Date"
+                        label="Ngày mục tiêu"
                         {...form.getInputProps('targetDate')}
                     />
                     <Grid style={{marginTop:16,marginBottom:8}} gutter={5} gutterXs="md" gutterMd="xl" gutterXl={50}>
                         <Grid.Col span={"auto"}>
-                        <Button radius="md" variant={"default"} fullWidth onClick={() => setShowDiscard(true)}>Cancel</Button>
+                        <Button radius="md" variant={"default"} fullWidth onClick={() => setShowDiscard(true)}>Huỷ bỏ</Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
-                        <Button radius="md" fullWidth type="submit">Save</Button>
+                        <Button radius="md" fullWidth type="submit">Lưu lại</Button>
                         </Grid.Col>
                     </Grid>
                 </form>
@@ -101,18 +101,18 @@ export default function GoalForm(props){
                     color: "red",
                     blur: 3,
                 }}
-                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Confirm Discard">
-                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>You will lose all the content you entered</Text>
+                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Xác nhận huỷ bỏ">
+                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>Bạn sẽ mất dữ liệu vừa nhập</Text>
                 <Grid
                 >
                     <Grid.Col span={"auto"}>
                         <Button radius="md" variant={"default"} fullWidth  onClick={() => setShowDiscard(false)}>
-                            No
+                            Không
                         </Button>
                     </Grid.Col>
                     <Grid.Col span={"auto"}>
                         <Button color={"red"} onClick={()=> handleDiscard()} radius="md" fullWidth type="submit">
-                            Yes
+                            Có
                         </Button>
                     </Grid.Col>
                 </Grid>

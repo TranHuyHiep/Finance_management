@@ -23,10 +23,10 @@ function BudgetForm(props) {
         },
         validate: {
             category: (value) => (
-                value !== '' ? null : 'Category is required'
+                value !== '' ? null : 'Yêu cầu nhập thể loại'
             ),
             budget: (value) => (
-                value !== '' ? null : 'Enter Budget'
+                value !== '' ? null : 'Nhập ngân sách'
             ),
         }
     });
@@ -69,18 +69,18 @@ function BudgetForm(props) {
             <Container size="md">
                 <form onSubmit={form.onSubmit((values) => handleSubmit())}>
                     <Select
-                        label="Category"
-                        placeholder="Select Category"
+                        label="Thể loại"
+                        placeholder="Nhập thể loại"
                         searchable
-                        nothingFound="No category found"
+                        nothingFound="Không có thể loại nào"
                         data={categoryData()}
                         maxDropdownHeight={150}
                         {...form.getInputProps("categoryId")}
                         style={{marginBottom:20}}
                     />
                     <NumberInput
-                        label="Budget"
-                        placeholder="Enter Budget"
+                        label="Ngân sách"
+                        placeholder="Nhập ngân sách"
                         hideControls
                         {...form.getInputProps("amount")}
                         style={{marginBottom:20}}
@@ -89,10 +89,10 @@ function BudgetForm(props) {
                     <Grid style={{marginTop: 16, marginBottom: 10}} gutter={5} gutterXs="md" gutterMd="xl" gutterXl={50}>
                         <Grid.Col span={"auto"}>
                             <Button radius="md" variant={"default"}
-                                    fullWidth onClick={handleCancel}>Cancel</Button>
+                                    fullWidth onClick={handleCancel}>Huỷ bỏ</Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
-                            <Button radius="md" fullWidth type="submit">Save</Button>
+                            <Button radius="md" fullWidth type="submit">Lưu</Button>
                         </Grid.Col>
                     </Grid>
                 </form>
@@ -102,18 +102,18 @@ function BudgetForm(props) {
                     color: "red",
                     blur: 3,
                 }}
-                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showCancel} onClose={handleCancelConfirm} radius="lg" centered  withCloseButton={false} title="Confirm">
-                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>You will lose all entered data</Text>
+                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showCancel} onClose={handleCancelConfirm} radius="lg" centered  withCloseButton={false} title="Xác nhận">
+                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>Bạn sẽ mất toàn bộ thông tin vừa nhập</Text>
                 <Grid
                 >
                     <Grid.Col span={"auto"}>
                         <Button radius="md" variant={"default"} fullWidth  onClick={() => setShowCancel(false)}>
-                            No
+                            Không
                         </Button>
                     </Grid.Col>
                     <Grid.Col span={"auto"}>
                         <Button color={"red"} onClick={()=> handleCancel()} radius="md" fullWidth>
-                            Yes
+                            Có
                         </Button>
                     </Grid.Col>
                 </Grid>

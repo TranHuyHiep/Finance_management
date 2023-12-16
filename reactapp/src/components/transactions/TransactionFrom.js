@@ -42,16 +42,16 @@ export default function TransactionForm(props) {
     },
     validate: {
         amount: (value) => (
-            value !== '' ? null : 'Amount is required'
+            value !== '' ? null : 'Yêu cầu nhập số lượng'
         ),
         accountId: (value) => (
-            value !== '' ? null : 'Select account'
+            value !== '' ? null : 'Chọn tài khoản'
         ),
         categoryId: (value) => (
-            value !== '' ? null : 'Select category'
+            value !== '' ? null : 'Chọn thể loại'
         ),
         paymentType: (value) => (
-            value !== '' ? null : 'Select type'
+            value !== '' ? null : 'Chọn phương thức thanh toán'
         ),
     }
   });
@@ -133,20 +133,20 @@ export default function TransactionForm(props) {
                   radius="md"
                   dropdownType="modal"
                   valueFormat="DD MMM YYYY hh:mm A"
-                  label="Date and time"
-                  placeholder="Pick date and time"
+                  label="Ngày và giờ"
+                  placeholder="Chọn ngày và giờ"
                   {...form.getInputProps('dateTime')}
               />
               <TextInput radius="md" style={{ marginTop: 16 }}
-                         label="Amount"
-                         placeholder="Ex: 5,000"
+                         label="Số lượng"
+                         placeholder="Ví dụ: 5,000 VND"
                          type='number'
                          {...form.getInputProps('amount')}
                          withAsterisk
               />
               <Textarea radius="md" style={{ marginTop: 16 }}
-                        placeholder="Enter Description"
-                        label="Description"
+                        placeholder="Nhập mô tả"
+                        label="Mô tả"
                         autosize
                         minRows={4}
                         {...form.getInputProps('description')}
@@ -154,51 +154,51 @@ export default function TransactionForm(props) {
           </Grid.Col>
           <Grid.Col span={12} md={6}>
             <Select radius="md"
-              label="Category"
-              placeholder="Select Category"
+              label="Thể loại"
+              placeholder="Chọn thể loại"
               searchable
               clearable
-              nothingFound={categoryList.length===0 ? <Text c="blue">No data found</Text> : <Loader size="sm" variant="dots" />}
+              nothingFound={categoryList.length===0 ? <Text c="blue">Không có dữ liệu</Text> : <Loader size="sm" variant="dots" />}
               withAsterisk
               data={categoryData()}
               onChange={handleTransactionType()}
               {...form.getInputProps('categoryId')}
             />
             <Select radius="md" style={{ marginTop: 16 }}
-              label="Account"
+              label="Tài khoản"
               withAsterisk
               searchable
               clearable
-              nothingFound={accountList.length===0 ? <Text c="blue">No data found</Text> : <Loader size="sm" variant="dots" />}
-              placeholder="Select Account"
+              nothingFound={accountList.length===0 ? <Text c="blue">Không có dữ liệu</Text> : <Loader size="sm" variant="dots" />}
+              placeholder="Chọn tài khoản"
               data={accountData()}
                     {...form.getInputProps('accountId')}
             />
             <Select radius="md" style={{ marginTop: 16 }}
-              label="Payment Type"
+              label="Phương thức thanh toán"
               withAsterisk
               disabled={form.values.accountId===''}
               clearable
-              nothingFound={paymentTypeDate().length===0 ?  <Text>No data found</Text> : <Loader size="sm" variant="dots" />}
-              placeholder="Select Payment Type"
+              nothingFound={paymentTypeDate().length===0 ?  <Text>Không có dữ liệu</Text> : <Loader size="sm" variant="dots" />}
+              placeholder="Chọn phương thức thanh toán"
               data={paymentTypeDate()}
               {...form.getInputProps('paymentType')}
             />
             <Radio.Group style={{ marginTop: 16 }}
-              label="Type"
+              label="Loại"
               {...form.getInputProps('type')}
             >
               <Group mt="xs">
-                <Radio disabled value="expense" label="Expenses" />
-                <Radio  disabled value="income" label="Income" />
+                <Radio disabled value="expense" label="Chi" />
+                <Radio  disabled value="income" label="Thu" />
               </Group>
             </Radio.Group>
             <Grid style={{ marginTop: 16 }} gutter={5} gutterXs="md" gutterMd="xl" gutterXl={50}>
               <Grid.Col span={"auto"}>
-                <Button radius="md" variant={"default"} fullWidth onClick={() => setShowDiscard(true)} >Discard</Button>
+                <Button radius="md" variant={"default"} fullWidth onClick={() => setShowDiscard(true)} >Huỷ</Button>
               </Grid.Col>
               <Grid.Col span={"auto"}>
-                <Button radius="md" fullWidth type="submit">Save</Button>
+                <Button radius="md" fullWidth type="submit">Lưu</Button>
               </Grid.Col>
             </Grid>
           </Grid.Col>
@@ -209,18 +209,18 @@ export default function TransactionForm(props) {
                   color: "red",
                   blur: 3,
               }}
-              size="sm" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Confirm Discard">
-              <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>You will lose all the content you entered</Text>
+              size="sm" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Xác nhận huỷ bỏ">
+              <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>Bạn sẽ mất toàn bộ nội dung đã nhập</Text>
               <Grid
               >
                   <Grid.Col span={"auto"}>
                       <Button radius="md" color="gray" fullWidth  onClick={() => setShowDiscard(false)}>
-                          No
+                          Không
                       </Button>
                   </Grid.Col>
                   <Grid.Col span={"auto"}>
                       <Button color={"red"} onClick={()=> handleDiscard()} radius="md" fullWidth type="submit">
-                          Yes
+                          Có
                       </Button>
                   </Grid.Col>
               </Grid>

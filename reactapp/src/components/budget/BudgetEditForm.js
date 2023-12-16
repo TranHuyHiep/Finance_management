@@ -24,10 +24,10 @@ function BudgetEditForm(props) {
         },
         validate: {
             category: (value) => (
-                value !== '' ? null : 'Category is required'
+                value !== '' ? null : 'Yêu cầu nhập thể loại'
             ),
             budget: (value) => (
-                value !== '' ? null : 'Enter Budget'
+                value !== '' ? null : 'Nhập ngân sách'
             ),
         }
     });
@@ -85,18 +85,18 @@ function BudgetEditForm(props) {
             <Container size="md">
                 <form onSubmit={form.onSubmit((values) => handleSubmit())}>
                     <Select
-                        label="Category"
-                        placeholder="Select Category"
+                        label="Thể loại"
+                        placeholder="Nhập thể loại"
                         searchable
-                        nothingFound="No category found"
+                        nothingFound="Không có thể loại nào"
                         data={categoryData()}
                         maxDropdownHeight={150}
                         {...form.getInputProps("categoryId")}
                         style={{marginBottom:20}}
                     />
                     <NumberInput
-                        label="Budget"
-                        placeholder="Enter Budget"
+                        label="Ngân sách"
+                        placeholder="Nhập ngân sách"
                         hideControls
                         {...form.getInputProps("amount")}
                         style={{marginBottom:20}}
@@ -105,14 +105,14 @@ function BudgetEditForm(props) {
                     <Grid style={{marginTop: 16, marginBottom: 10}} gutter={5} gutterXs="md" gutterMd="xl" gutterXl={50}>
                         <Grid.Col span={"auto"}>
                             <Button radius="md" color="red"
-                                    fullWidth onClick={() => setShowDelete(true)}>Delete</Button>
+                                    fullWidth onClick={() => setShowDelete(true)}>Xoá</Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
                             <Button radius="md" variant={"default"}
-                                    fullWidth onClick={handleCancel}>Cancel</Button>
+                                    fullWidth onClick={handleCancel}>Huỷ bỏ</Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
-                            <Button radius="md" fullWidth type="submit">Save</Button>
+                            <Button radius="md" fullWidth type="submit">Lưu</Button>
                         </Grid.Col>
                     </Grid>
                 </form>
@@ -122,18 +122,18 @@ function BudgetEditForm(props) {
                     color: "red",
                     blur: 3,
                 }}
-                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDelete} onClose={handleDeleteCancle} radius="lg" centered  withCloseButton={false} title="Confirm Delete">
-                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>This will delete this account</Text>
+                size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDelete} onClose={handleDeleteCancle} radius="lg" centered  withCloseButton={false} title="Xác nhận xoá">
+                <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>Xác nhận xoá bỏ ngân sách</Text>
                 <Grid
                 >
                     <Grid.Col span={"auto"}>
                         <Button radius="md" color="gray" fullWidth  onClick={() => setShowDelete(false)}>
-                            No, Cancel
+                            Không, huỷ bỏ
                         </Button>
                     </Grid.Col>
                     <Grid.Col span={"auto"}>
                         <Button color={"red"} onClick={()=> handleDelete()} radius="md" fullWidth>
-                            Yes, Delete
+                            Có, xoá bỏ
                         </Button>
                     </Grid.Col>
                 </Grid>

@@ -43,16 +43,16 @@ export default function TransactionEditForm(props) {
         },
         validate: {
             amount: (value) => (
-                value !== '' ? null : 'Amount is required'
+                value !== '' ? null : 'Yêu cầu điền số lượng'
             ),
             accountId: (value) => (
-                value !== '' ? null : 'Select account'
+                value !== '' ? null : 'Vui lòng chọn tài khoản'
             ),
             categoryId: (value) => (
-                value !== '' ? null : 'Select category'
+                value !== '' ? null : 'Vui lòng chọn thể loại'
             ),
             paymentType: (value) => (
-                value !== '' ? null : 'Select type'
+                value !== '' ? null : 'Vui lòng chọn phương thức thanh toán'
             ),
         }
     });
@@ -149,7 +149,7 @@ export default function TransactionEditForm(props) {
                 opacity: 0.55,
                 blur: 3,
             }} size={"xl"} withCloseButton={false} closeOnClickOutside={false} radius="lg" opened={props.open} onClose={() => { props.close() }} centered>
-                <Title style={{ marginLeft: 10 }} order={3}>{`Edit Transaction: `}</Title>
+                <Title style={{ marginLeft: 10 }} order={3}>{`Chỉnh sửa giao dịch: `}</Title>
                 <form onSubmit={form.onSubmit((values) => handleEditTransaction())}>
                     <Grid style={{ margin: 10 }}>
                         <Grid.Col span={6}>
@@ -166,15 +166,15 @@ export default function TransactionEditForm(props) {
                                     {...form.getInputProps('dateTime')}
                                 />
                                 <TextInput radius="md" style={{ marginTop: 16 }}
-                                           label="Amount"
+                                           label="Số lượng"
                                            placeholder="Ex: 5,000"
                                            type='number'
                                            {...form.getInputProps('amount')}
                                            withAsterisk
                                 />
                                 <Textarea radius="md" style={{ marginTop: 16 }}
-                                          placeholder="Enter Description"
-                                          label="Description"
+                                          placeholder="Nhập mô tả"
+                                          label="Mô tả"
                                           autosize
                                           minRows={4}
                                           {...form.getInputProps('description')}
@@ -183,54 +183,54 @@ export default function TransactionEditForm(props) {
                         </Grid.Col>
                         <Grid.Col span={6}>
                             <Select radius="md"
-                                    label="Category"
-                                    placeholder="Select Category"
+                                    label="Thể loại"
+                                    placeholder="Chọn thể loại"
                                     searchable
                                     clearable
-                                    nothingFound={categoryList.length===0 ? <Text c="blue">No data found</Text> : <Loader size="sm" variant="dots" />}
+                                    nothingFound={categoryList.length===0 ? <Text c="blue">Không có dữ liệu</Text> : <Loader size="sm" variant="dots" />}
                                     withAsterisk
                                     data={categoryData()}
                                     onChange={handleTransactionType()}
                                     {...form.getInputProps('categoryId')}
                             />
                             <Select radius="md" style={{ marginTop: 16 }}
-                                    label="Account"
+                                    label="Tài khoản"
                                     withAsterisk
                                     searchable
                                     clearable
-                                    nothingFound={accountList.length===0 ? <Text c="blue">No data found</Text> : <Loader size="sm" variant="dots" />}
-                                    placeholder="Select Account"
+                                    nothingFound={accountList.length===0 ? <Text c="blue">Không có dữ liệu</Text> : <Loader size="sm" variant="dots" />}
+                                    placeholder="Chọn tài khoản"
                                     data={accountData()}
                                     {...form.getInputProps('accountId')}
                             />
                             <Select radius="md" style={{ marginTop: 16 }}
-                                    label="Payment Type"
+                                    label="Phương thức thanh toán"
                                     withAsterisk
                                     disabled={form.values.accountId===''}
                                     clearable
-                                    nothingFound={paymentTypeDate().length===0 ?  <Text>No data found</Text> : <Loader size="sm" variant="dots" />}
-                                    placeholder="Select Payment Type"
+                                    nothingFound={paymentTypeDate().length===0 ?  <Text>Không có dữ liệu</Text> : <Loader size="sm" variant="dots" />}
+                                    placeholder="Chọn phương thức thanh toán"
                                     data={paymentTypeDate()}
                                     {...form.getInputProps('paymentType')}
                             />
                             <Radio.Group style={{ marginTop: 16 }}
-                                         label="Type"
+                                         label="Loại"
                                          {...form.getInputProps('type')}
                             >
                                 <Group mt="xs">
-                                    <Radio disabled value="expense" label="Expenses" />
-                                    <Radio  disabled value="income" label="Income" />
+                                    <Radio disabled value="expense" label="Chi" />
+                                    <Radio  disabled value="income" label="Thu" />
                                 </Group>
                             </Radio.Group>
                             <Grid style={{ marginTop: 16 }} gutter={5} gutterXs="md" gutterMd="xl" gutterXl={50}>
                                 <Grid.Col span={"auto"}>
-                                    <Button radius="md" color="red" fullWidth onClick={() => setShowDiscard(true)} >Delete</Button>
+                                    <Button radius="md" color="red" fullWidth onClick={() => setShowDiscard(true)} >Xoá</Button>
                                 </Grid.Col>
                                 <Grid.Col span={"auto"}>
-                                    <Button radius="md" variant={"default"} fullWidth onClick={() => handleCancel() }>Cancel</Button>
+                                    <Button radius="md" variant={"default"} fullWidth onClick={() => handleCancel() }>Huỷ</Button>
                                 </Grid.Col>
                                 <Grid.Col span={"auto"}>
-                                    <Button loading={editTransactionInProcess} radius="md" fullWidth type="submit">Save</Button>
+                                    <Button loading={editTransactionInProcess} radius="md" fullWidth type="submit">Lưu</Button>
                                 </Grid.Col>
                             </Grid>
                         </Grid.Col>
@@ -241,18 +241,18 @@ export default function TransactionEditForm(props) {
                         color: "red",
                         blur: 3,
                     }}
-                    size="sm" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Confirm Delete">
-                    <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>This will delete this transaction.</Text>
+                    size="sm" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Xác nhận xoá giao dịch">
+                    <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>Xác nhận sẽ xoá giao dịch này.</Text>
                     <Grid
                     >
                         <Grid.Col span={"auto"}>
                             <Button radius="md" color="gray" fullWidth  onClick={() => setShowDiscard(false)}>
-                                No, Cancel
+                                Không, huỷ
                             </Button>
                         </Grid.Col>
                         <Grid.Col span={"auto"}>
                             <Button color={"red"} onClick={()=> handleDelete()} radius="md" fullWidth type="submit">
-                                Yes, Delete
+                                Có, xác nhận xoá
                             </Button>
                         </Grid.Col>
                     </Grid>

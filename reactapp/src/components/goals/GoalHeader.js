@@ -7,11 +7,11 @@ export default function GoalHeader() {
         <div style={{marginBottom:10}}>
             <Grid>
                 <Grid.Col span={"content"}>
-                    <Title style={{ margin: 5 }} order={2}>Goals</Title>
+                    <Title style={{ margin: 5 }} order={2}>Mục tiêu</Title>
                 </Grid.Col>
                 <Grid.Col style={{margin:8}} span={"content"}>
                     <Button radius="md" miw={"120px"} onClick={() => dispatch(showGoalForm())} fullWidth>
-                        Add Goals
+                        Thêm mục tiêu
                     </Button>
                 </Grid.Col>
             </Grid>
