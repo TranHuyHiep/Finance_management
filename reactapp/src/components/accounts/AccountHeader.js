@@ -8,11 +8,11 @@ export default function AccountHeader() {
         <div style={{marginBottom:10}}>
             <Grid>
                 <Grid.Col span={"content"}>
-                    <Title style={{ margin: 5 }} order={2}>Accounts</Title>
+                    <Title style={{ margin: 5 }} order={2}>Tài khoản</Title>
                 </Grid.Col>
                 <Grid.Col span={"content"}>
                     <Button fullWidth radius="md" onClick={()=> dispatch(showAccountForm())} style={{margin:8}}>
-                        Add Account
+                        Thêm tài khoản
                     </Button>
                 </Grid.Col>
             </Grid>

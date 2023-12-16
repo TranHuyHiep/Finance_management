@@ -34,9 +34,9 @@ export default function SigninForm(props) {
     return (
         <Modal withCloseButton={false} radius="lg" size="sm" opened={props.open} onClose={() => { props.close() }} centered>
             <LoadingOverlay visible={signinInProgress} overlayBlur={2} />
-            <Title size="32" align="center">Hello!!</Title>
+            <Title size="32" align="center">ĐĂNG NHẬP!!</Title>
             <Container size="md">
-                <Text style={{ marginTop: 10 }} size="md" c="dimmed">Use your email to continue with personal finance app  </Text>
+                <Text style={{ marginTop: 10 }} size="md" c="dimmed">Sử dụng địa chỉ email để tiếp tục sử dụng ứng dụng tài chính cá nhân của bạn</Text>
                 <form onSubmit={form.onSubmit((values) => handleSubmit())}>
                     <TextInput radius="md" style={{ marginTop: 16 }}
                         withAsterisk
@@ -47,14 +47,14 @@ export default function SigninForm(props) {
                     />
                     <TextInput radius="md" style={{ marginTop: 16 }}
                         withAsterisk
-                        label="Password"
+                        label="Mật khẩu"
                         placeholder="Password"
                         type='password'
                         {...form.getInputProps('password')}
                     />
-                    <Text onClick={() => dispatch(openForgotPasswordForm())} size={"sm"} c="blue" style={{ marginTop: 16,cursor:"pointer" }}>Forgot Password?</Text>
+                    <Text onClick={() => dispatch(openForgotPasswordForm())} size={"sm"} c="blue" style={{ marginTop: 16,cursor:"pointer" }}>Quên mật khẩu?</Text>
                     <Group style={{ marginTop: 16, marginBottom: 16 }}>
-                        <Button radius="md" fullWidth type="submit">Submit</Button>
+                        <Button radius="md" fullWidth type="submit">Xác nhận</Button>
                     </Group>
                 </form>
             </Container>

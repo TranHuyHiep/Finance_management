@@ -20,7 +20,7 @@ export default function BudgetScreen(){
     },[dispatch, token])
     const budgetList = useSelector(state => state.budget.budgetList)
     return(
-        <Layout title={"Budgets"} load={budgetList.length>0}>
+        <Layout title={"Ngân sách"} load={budgetList.length>0}>
 
                 <BudgetHeader/>
                 <BudgetFeature/>

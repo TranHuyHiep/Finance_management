@@ -26,7 +26,7 @@ export default function BudgetFeature(){
             <Grid>
                 <Grid.Col span={6} md={"content"} >
                     <Paper miw={"180px"}radius="md" p="md" withBorder>
-                    <Text size={"lg"} fw={700}>{`Rs. ${handleTotalBudget()}`}</Text>
+                    <Text size={"lg"} fw={700}>{`${handleTotalBudget()} VND`}</Text>
                     <Text size={"sm"} fw={700} c="dimmed" >
                         TOTAL BUDGET
                     </Text>
@@ -34,7 +34,7 @@ export default function BudgetFeature(){
                 </Grid.Col>
                 <Grid.Col span={6} md={"content"} >
                     <Paper miw={"180px"} radius="md" p="md" withBorder>
-                    <Text size={"lg"} fw={700}>{`Rs. ${handleTotalUsed()}`}</Text>
+                    <Text size={"lg"} fw={700}>{`${handleTotalUsed()} VND`}</Text>
                     <Text size={"sm"} fw={700} c="dimmed" ta="bottom">
                         TOTAL USED
                     </Text>
@@ -42,7 +42,7 @@ export default function BudgetFeature(){
                 </Grid.Col>
                 <Grid.Col span={12} md={"content"} >
                     <Paper miw={"180px"} radius="md" p="md" withBorder>
-                        <Text size={"lg"} fw={700} style={{color: "#26AB35"}}>{`Rs. ${handleTotalLeft()}`}</Text>
+                        <Text size={"lg"} fw={700} style={{color: "#26AB35"}}>{`${handleTotalLeft()} VND`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed" ta="bottom">
                             TOTAL LEFT
                         </Text>

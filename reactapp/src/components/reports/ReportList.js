@@ -48,13 +48,13 @@ export default function ReportList() {
                 <Grid.Col md={6} lg={6}>
                     <Card  padding="lg" radius="md" withBorder>
                         <Group position="apart" mt="md" mb="xs">
-                            <Text weight={500}>Transaction Report</Text>
+                            <Text weight={500}>Xuất báo cáo giao dịch</Text>
                         </Group>
                         <Text size="sm" color="dimmed">
-                            This will generate a full report on transaction in excel format.
+                            Điều này sẽ tạo ra một báo cáo đầy đủ về các giao dịch ở định dạng excel.
                         </Text>
                         <Button loading={transactionReportLoading} onClick={() => handleTransactionReportExcel()} leftIcon={<ExcelIcon style={{height:16,width:16}}/>} variant="light" color="green" fullWidth mt="md" radius="md">
-                            Download Excel Report
+                            Tải xuống báo cáo Excel
                         </Button>
                     </Card>
                 </Grid.Col>

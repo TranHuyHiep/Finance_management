@@ -43,7 +43,7 @@ export default function ProfileScreen() {
   return (
     <>
       <Layout title={""} load={true}>
-          <Title style={{ margin: 5 }} order={2}>Profile</Title>
+          <Title style={{ margin: 5 }} order={2}>Thông tin cá nhân</Title>
         <div
           style={{
             marginTop: "10px",

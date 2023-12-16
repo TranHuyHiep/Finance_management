@@ -41,7 +41,7 @@ export default function  AccountScreen(){
         )
     }
     return(
-        <Layout title={"Accounts"} load={accountList.length>0}>
+        <Layout title={"Tài khoản"} load={accountList.length>0}>
             {fetchAccountInProcess    ? <div>
                     <Container size={"xxl"}>
                         <Grid style={{marginBottom:10}}>

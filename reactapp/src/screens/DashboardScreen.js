@@ -35,9 +35,9 @@ export default function  DashboardScreen(){
         })
     },[dispatch, token])
     return(
-        <Layout title={"Dashboard"} load={true}>
+        <Layout title={"Tổng quan"} load={true}>
             <div >
-                <Title style={{ margin: 5,marginBottom:10 }} order={2}>Dashboard</Title>
+                <Title style={{ margin: 5,marginBottom:10 }} order={2}>Tổng quan</Title>
                 <DashboardFeture/>
                 <Grid style={{height:300}}>
                     <Grid.Col span={12} md={6}>
@@ -46,8 +46,8 @@ export default function  DashboardScreen(){
                                 <Paper style={{marginBottom:10}} radius="md" p="md" withBorder>
                                     <Grid >
                                         <Grid.Col span={12} md={6}>
-                                            <Title order={4}>{result?.total_expenses>0 ? `Rs. ${result?.total_expenses.toLocaleString("en-US")}` : `-`}</Title>
-                                            <Text c={"dimmed"}>This Month Expenses</Text>
+                                            <Title order={4}>{result?.total_expenses>0 ? `${result?.total_expenses.toLocaleString("en-US")} VND` : `-`}</Title>
+                                            <Text c={"dimmed"}>Chi phí trong tháng này</Text>
                                         </Grid.Col>
                                     </Grid>
                                     <Divider my="sm" style={{marginBottom:20}} />
@@ -60,8 +60,8 @@ export default function  DashboardScreen(){
                                 <Paper  radius="md" p="md" withBorder>
                                     <Grid >
                                         <Grid.Col span={12} md={6}>
-                                            <Title style={{color: "#26AB35"}} order={4}>{result?.total_income>0 ? `Rs. ${result?.total_income.toLocaleString("en-US")}` : `-`}</Title>
-                                            <Text c={"dimmed"}>This Month Income</Text>
+                                            <Title style={{color: "#26AB35"}} order={4}>{result?.total_income>0 ? `${result?.total_income.toLocaleString("en-US")} VND` : `-`}</Title>
+                                            <Text c={"dimmed"}>Thu nhập trong tháng này</Text>
                                         </Grid.Col>
                                     </Grid>
                                     <Divider my="sm" style={{marginBottom:20}} />
@@ -76,12 +76,12 @@ export default function  DashboardScreen(){
                             <Paper  radius="md" p="md" withBorder>
                                 <Grid >
                                     <Grid.Col span={12} md={6}>
-                                        <Title order={4}>{result?.total_expenses>0 ? `Rs. ${result?.total_expenses.toLocaleString("en-US")}` : `-`}</Title>
-                                        <Text c={"dimmed"}>This Month Expenses</Text>
+                                        <Title order={4}>{result?.total_expenses>0 ? `${result?.total_expenses.toLocaleString("en-US")} VND` : `-`}</Title>
+                                        <Text c={"dimmed"}>Chi phí trong tháng này</Text>
                                     </Grid.Col>
                                     <Grid.Col span={12} md={6}>
-                                        <Title style={{color: "#26AB35"}} order={4}>{result?.total_income>0 ? `Rs. ${result?.total_income.toLocaleString("en-US")}` : `-`}</Title>
-                                        <Text c={"dimmed"}>This Month Income</Text>
+                                        <Title style={{color: "#26AB35"}} order={4}>{result?.total_income>0 ? `${result?.total_income.toLocaleString("en-US")} VND` : `-`}</Title>
+                                        <Text c={"dimmed"}>Thu nhập trong tháng này</Text>
                                     </Grid.Col>
                                 </Grid>
                                 <Divider my="sm" style={{marginBottom:20}} />
@@ -99,8 +99,8 @@ export default function  DashboardScreen(){
                     </Grid.Col>
                     <Grid.Col span={12} md={6}>
                         <Paper radius="md" p="md" withBorder>
-                            <Title order={4}>Last 6 month</Title>
-                            <Text c={"dimmed"}>Income and expenses</Text>
+                            <Title order={4}>6 tháng gần nhất</Title>
+                            <Text c={"dimmed"}>Thu và chi</Text>
                             <Divider my="sm" />
                             <BarChart />
                         </Paper>

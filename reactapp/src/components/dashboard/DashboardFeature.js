@@ -40,27 +40,27 @@ export default function  DashboardFeture(){
             <Paper style={{ marginBottom: 16 }} radius="md" p="md" withBorder>
                 <Grid>
                     <Grid.Col span={6} sm={6} md={3}>
-                        <Text size={"xl"} fw={700}>{handleTotalBalanace()>0 ? `Rs. ${handleTotalBalanace().toLocaleString("en-US")}` : `-`}</Text>
+                        <Text size={"xl"} fw={700}>{handleTotalBalanace()>0 ? `${handleTotalBalanace().toLocaleString("en-US")} VND` : `-`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
-                            TOTAL BALANCE
+                            TỔNG SỐ DƯ
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={6} sm={6} md={3}>
                         <Text size={"xl"} fw={700}>{handleTotalBudget()>0 ? `${Math.floor((100 * handleTotalUsed()) / handleTotalBudget())}%` : `-`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
-                            BUDGET USED
+                            NGÂN SÁCH ĐÃ SỬ DỤNG
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={6} sm={6} md={3}>
                         <Text size={"xl"} fw={700}>{`${debtPending} `}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
-                            DEBTS PENDING
+                            NỢ ĐANG CHỜ XỬ LÝ
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={6} sm={6} md={3}>
                         <Text size={"xl"} fw={700}>{`${pendingGoals()} / ${goalList.length}`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
-                            GOALS COMPLETED
+                            MỤC TIÊU ĐÃ ĐẠT ĐƯỢC
                         </Text>
                     </Grid.Col>
                 </Grid>

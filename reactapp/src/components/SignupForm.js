@@ -85,18 +85,17 @@ export default function SignupForm(props) {
             props.close()
         }} centered>
             <LoadingOverlay visible={signupInProgress} overlayBlur={2} />
-            <Title size="32" align="center">Signup</Title>
+            <Title size="32" align="center">ĐĂNG KÝ</Title>
             <Container size="md">
-                <Text style={{marginTop: 10}} size="md" c="dimmed">Fill the details to continue with personal finance
-                    app </Text>
+                <Text style={{marginTop: 10}} size="md" c="dimmed">Điền đầy đủ thông tin để tiếp túc sử dụng ứng dụng quản lý tài chính của bạn</Text>
                 {displayUserDetailsForm &&
                     <form onSubmit={userDetailsForm.onSubmit((values) => handleSendVerificationCode())}>
                         <Grid>
                             <Grid.Col span={6}>
                                 <TextInput radius="md" style={{marginTop: 16}}
                                            withAsterisk
-                                           label="First Name"
-                                           placeholder="Ex: Udhayakumar"
+                                           label="Họ"
+                                           placeholder="Ex: Trần"
                                            type='firstName'
                                            {...userDetailsForm.getInputProps('firstName')}
                                 />
@@ -104,8 +103,8 @@ export default function SignupForm(props) {
                             <Grid.Col span={6}>
                                 <TextInput radius="md" style={{marginTop: 16}}
                                            withAsterisk
-                                           label="Last Name"
-                                           placeholder="Ex: T"
+                                           label="Tên"
+                                           placeholder="Ex: Hiệp"
                                            type='lastName'
                                            {...userDetailsForm.getInputProps('lastName')}
                                 />
@@ -119,7 +118,7 @@ export default function SignupForm(props) {
                                    {...userDetailsForm.getInputProps('email')}
                         />
                         <Group style={{marginTop: 36, marginBottom: 10}}>
-                            <Button radius="md" fullWidth type="submit">Continue</Button>
+                            <Button radius="md" fullWidth type="submit">Tiếp tục</Button>
                         </Group>
                     </form>
                 }
@@ -133,7 +132,7 @@ export default function SignupForm(props) {
                                    {...otpForm.getInputProps('otp')}
                         />
                         <Group style={{marginTop: 36, marginBottom: 10}}>
-                            <Button radius="md" fullWidth type="submit">Verify Code</Button>
+                            <Button radius="md" fullWidth type="submit">Mã xác nhận</Button>
                         </Group>
                     </form>
                 }

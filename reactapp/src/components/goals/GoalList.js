@@ -27,7 +27,7 @@ export default function GoalList() {
         <tr key={element.name}>
             <td><Text fw={700}>{element.name}</Text><Text c={"dimmed"} size={"xs"}>{element.description}</Text></td>
             <td><Text fw={700}>{handleDate(element.targetDate)}</Text></td>
-            <td><Text fw={700}>{`Rs. ${element.targetAmount}`}</Text></td>
+            <td><Text fw={700}>{`VND ${element.targetAmount}`}</Text></td>
             <td><Text fw={700}>{element.status}</Text></td>
             <td>{<EditSVG onClick={() => handleEdit(element) }/>}</td>
         </tr>

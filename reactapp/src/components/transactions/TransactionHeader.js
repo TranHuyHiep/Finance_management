@@ -15,7 +15,7 @@ export default function TransactionHeader() {
             {isMobile ?
                 <Grid>
                     <Grid.Col span={"content"} >
-                        <Title style={{ margin: 5 }} order={3}>Transactions</Title>
+                        <Title style={{ margin: 5 }} order={3}>Giao dịch</Title>
                     </Grid.Col>
                     <Grid.Col span={"content"} style={{ marginLeft: 'auto' }}>
                         <AddIconBlue style={{ margin: 8 }} onClick={() => dispatch(showTransactionForm())}></AddIconBlue>
@@ -28,10 +28,10 @@ export default function TransactionHeader() {
                     <Grid.Col span={12} md={6}>
                         <Grid>
                             <Grid.Col span={"content"} md={"content"}>
-                                <Title style={{ margin: 5 }} order={2}>Transactions</Title>
+                                <Title style={{ margin: 5 }} order={2}>Giao dịch</Title>
                             </Grid.Col>
                             <Grid.Col span={"content"} >
-                                <Button radius="md"  style={{ margin: 8 }} onClick={() => dispatch(showTransactionForm())}>Add Transactions</Button>
+                                <Button radius="md"  style={{ margin: 8 }} onClick={() => dispatch(showTransactionForm())}>Thêm giao dịch</Button>
                             </Grid.Col>
                         </Grid>
                     </Grid.Col>
@@ -40,7 +40,7 @@ export default function TransactionHeader() {
                             style={{ margin: 8 }}
                             icon={<SearchIcon />}
                             radius="md"
-                            placeholder="Search..."
+                            placeholder="Tìm kiếm..."
                             value={''}
                         />
                     </Grid.Col>

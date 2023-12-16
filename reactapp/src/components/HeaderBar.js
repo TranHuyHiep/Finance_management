@@ -66,8 +66,8 @@ export default function HeaderBar(props) {
                     </Group>
                         {props.isLandingPage?
                             <Group>
-                                <Button radius="xl" variant="subtle" onClick={() => handleOpenSigninForm()}>Sign in</Button>
-                                <Button radius="xl" onClick={() => handleOpenSignupForm()}>Sign up</Button>
+                                <Button radius="xl" variant="subtle" onClick={() => handleOpenSigninForm()}>Đăng nhập</Button>
+                                <Button radius="xl" onClick={() => handleOpenSignupForm()}>Đăng ký</Button>
                             </Group>
 
                             :<Group>

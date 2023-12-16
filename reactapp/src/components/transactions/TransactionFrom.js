@@ -125,7 +125,7 @@ export default function TransactionForm(props) {
           opacity: 0.55,
           blur: 3,
       }} size={"xl"} withCloseButton={false} closeOnClickOutside={false} radius="lg" opened={props.open} onClose={() => { props.close() }} centered>
-        <Title style={{ marginLeft: 10 }} order={3}>Add Transaction</Title>
+        <Title style={{ marginLeft: 10 }} order={3}>Thêm giao dịch</Title>
         <form onSubmit={form.onSubmit((values) => handleAddTransaction(values))}>
         <Grid style={{ margin: 10 }}>
           <Grid.Col span={12} md={6}>

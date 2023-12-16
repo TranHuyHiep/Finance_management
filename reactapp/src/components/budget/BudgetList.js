@@ -42,7 +42,7 @@ export default function BudgetList() {
                             radius="xl"
                             size="sm"
                         />
-                        <Text style={{marginTop:8,fontSize:10}}>{`Balance left to spend  Rs. ${element.balance.toLocaleString('en-US')} in Rs. ${element.amount.toLocaleString('en-US')}`}</Text>
+                        <Text style={{marginTop:8,fontSize:10}}>{`Balance left to spend  ${element.balance.toLocaleString('en-US')} VND in ${element.amount.toLocaleString('en-US')} VND`}</Text>
                     </Grid.Col>
                 </Grid>
             </div>
@@ -63,12 +63,12 @@ export default function BudgetList() {
                     <Text fw={700}>{element.category.name}</Text>
                 </td>
                 <td>
-                    <Text fw={700}>{`Rs. ${element.amount.toLocaleString('en-US')}`}</Text>
+                    <Text fw={700}>{`${element.amount.toLocaleString('en-US')} VND`}</Text>
                 </td>
                 <td>
                     <Grid>
                         <Grid.Col span="content">
-                            <Text fw={700}>{`Rs. ${element.used.toLocaleString('en-US')}`}</Text>
+                            <Text fw={700}>{`${element.used.toLocaleString('en-US')} VND`}</Text>
                         </Grid.Col>
                         <Grid.Col span="auto">
                             <Progress
@@ -82,7 +82,7 @@ export default function BudgetList() {
                 </td>
                 <td>
                     <Text fw={700} style={{color: '#26AB35'}}>
-                        {`Rs. ${element.balance.toLocaleString('en-US')}`}
+                        {`${element.balance.toLocaleString('en-US')} VND`}
                     </Text>
                 </td>
                 <td>{<EditSVG onClick={() => handleBudgetEditFormOpen(element)}></EditSVG>}</td>

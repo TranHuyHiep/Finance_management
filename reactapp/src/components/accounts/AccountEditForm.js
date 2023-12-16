@@ -75,7 +75,7 @@ export default function AccountEditForm(props) {
             blur: 3,
         }} withCloseButton={false} closeOnClickOutside={false} radius="lg" size="sm" opened={props.open} onClose={() => { props.close() }} centered>
             <LoadingOverlay visible={addAccountInProcess} overlayBlur={2} />
-            <Title style={{ marginLeft: 10 }} order={3}>Add Account</Title>
+            <Title style={{ marginLeft: 10 }} order={3}>Thêm tài khoản</Title>
             <Container size="md">
                 <form onSubmit={form.onSubmit((values) => handleUpdate())}>
                     <TextInput radius="md" style={{ marginTop: 16 }}

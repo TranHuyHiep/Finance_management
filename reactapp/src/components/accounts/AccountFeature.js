@@ -36,31 +36,31 @@ export default function AccountFeature() {
                     <Paper radius="md" miw={"180px"} p="md" withBorder>
                         <Text size={"lg"} fw={700}>{handleTotalAccount().toLocaleString("en-US")}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
-                            TOTAL ACCOUNTS
+                            Tổng tài khoản
                         </Text>
                     </Paper>
                 </Grid.Col>
                 <Grid.Col span={6} md={"content"}>
                     <Paper  radius="md" miw={"180px"} p="md" withBorder>
-                        <Text size={"lg"} fw={700}>{`Rs. ${handleTotalIncome().toLocaleString("en-US")}`}</Text>
+                        <Text size={"lg"} fw={700}>{`${handleTotalIncome().toLocaleString("en-US")} VND`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
-                            TOTAL INCOME
+                            Tổng thu
                         </Text>
                     </Paper>
                 </Grid.Col>
                 <Grid.Col span={6} md={"content"}>
                     <Paper radius="md" miw={"180px"} p="md" withBorder>
-                        <Text size={"lg"} fw={700}>{`Rs. ${handleTotalExpense().toLocaleString("en-US")}`}</Text>
+                        <Text size={"lg"} fw={700}>{`${handleTotalExpense().toLocaleString("en-US")} VND`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
-                            TOTAL EXPENSES
+                            Tổng chi
                         </Text>
                     </Paper>
                 </Grid.Col>
                 <Grid.Col span={6} md={"content"}>
                     <Paper  radius="md" miw={"180px"} p="md" withBorder>
-                        <Text size={"lg"} fw={700} style={{color: "#26AB35"}}>{`Rs. ${handleTotalBalanace().toLocaleString("en-US")}`}</Text>
+                        <Text size={"lg"} fw={700} style={{color: "#26AB35"}}>{`${handleTotalBalanace().toLocaleString("en-US")} VND`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
-                            TOTAL BALANCE
+                            Tổng thu chi
                         </Text>
                     </Paper>
                 </Grid.Col>

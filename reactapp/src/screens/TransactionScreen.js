@@ -64,7 +64,7 @@ export default function TransactionScreen() {
         )
     }
   return (
-    <Layout title={"Transactions"} load={transactionList.length>0}>
+    <Layout title={"Giao dịch"} load={transactionList.length>0}>
         {fetchTransactionInProcess ? <div>
             <Container size={"xxl"}>
                 <Grid style={{marginBottom:20}}>

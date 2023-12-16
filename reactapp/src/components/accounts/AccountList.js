@@ -31,7 +31,7 @@ export default function AccountList() {
                         <Grid.Col span={"content"}>
                             <Text style={{marginTop: 20}}>Total Available Balance</Text>
                             <Badge variant="filled" size={"xl"}><Text
-                                         fw={700}>Rs. {element.currentBalance.toLocaleString('en-US')}</Text></Badge>
+                                         fw={700}>{element.currentBalance.toLocaleString('en-US')} VND</Text></Badge>
                         </Grid.Col>
                     </Grid>
                     <Grid>
@@ -59,14 +59,14 @@ export default function AccountList() {
                     <Text fw={700}>{element.name}</Text>
                 </td>
                 <td>
-                    <Text fw={700}>{`Rs. ${element.totalIncome.toLocaleString('en-US')}`}</Text>
+                    <Text fw={700}>{`${element.totalIncome.toLocaleString('en-US')} VND`}</Text>
                 </td>
                 <td>
-                    <Text fw={700}>{`Rs. ${element.totalExpenses.toLocaleString('en-US')}`}</Text>
+                    <Text fw={700}>{`${element.totalExpenses.toLocaleString('en-US')} VND`}</Text>
                 </td>
                 <td>
                     <Text fw={700} style={{color: '#26AB35'}}>
-                        {`Rs. ${element.currentBalance.toLocaleString('en-US')}`}
+                        {`${element.currentBalance.toLocaleString('en-US')} VND`}
                     </Text>
                 </td>
                 <td>{<EditSVG onClick={() => handleEdit(element)}/>}</td>
@@ -94,19 +94,19 @@ export default function AccountList() {
                     <thead>
                     <tr>
                         <th>
-                            <Text c="dimmed">ACCOUNT DETAILS</Text>
+                            <Text c="dimmed">CHI TIẾT TÀI KHOẢN</Text>
                         </th>
                         <th>
-                            <Text c="dimmed">TOTAL INCOME</Text>
+                            <Text c="dimmed">TỔNG THU</Text>
                         </th>
                         <th>
-                            <Text c="dimmed">TOTAL EXPENSES</Text>
+                            <Text c="dimmed">TỔNG CHI</Text>
                         </th>
                         <th>
-                            <Text c="dimmed">CURRENT BALANCE</Text>
+                            <Text c="dimmed">SỐ TIỀN HIỆN TẠI</Text>
                         </th>
                         <th>
-                            <Text c="dimmed">EDIT</Text>
+                            <Text c="dimmed">CHỈNH SỬA</Text>
                         </th>
                     </tr>
                     </thead>

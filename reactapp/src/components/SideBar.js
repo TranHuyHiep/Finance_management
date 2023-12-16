@@ -130,7 +130,7 @@ export default function SideBar(props) {
                   </div>
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10}}
-                      label={props.currentPage === "Dashboard" ?<Text size={"lg"} fw={600}>Dashboard</Text>:<Text size={"lg"}>Dashboard</Text>}
+                      label={props.currentPage === "Dashboard" ?<Text size={"lg"} fw={600}>Tổng quan</Text>:<Text size={"lg"}>Tổng quan</Text>}
                       icon={props.currentPage === "Dashboard" ?<DashboardIconBlue style={{width:22,height:22}}/> : <DashboardIcon style={{width:22,height:22}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/dashboard")}
@@ -138,7 +138,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Transactions" ?<Text size={"lg"} fw={600}>Transactions</Text>:<Text size={"lg"}>Transactions</Text>}
+                      label={props.currentPage === "Transactions" ?<Text size={"lg"} fw={600}>Giao dịch</Text>:<Text size={"lg"}>Giao dịch</Text>}
                       icon={props.currentPage === "Transactions" ?<TransactionsIconBlue style={{width:22,height:22}}/> : <TransactionsIcon style={{width:22,height:22}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/transaction")}
@@ -146,7 +146,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10}}
-                      label={props.currentPage === "Accounts" ?<Text size={"lg"} fw={600}>Accounts</Text>:<Text size={"lg"}>Accounts</Text>}
+                      label={props.currentPage === "Accounts" ?<Text size={"lg"} fw={600}>Tài khoản</Text>:<Text size={"lg"}>Tài khoản</Text>}
                       icon={props.currentPage === "Accounts" ?<AccountsIconBlue style={{width:22,height:22}}/> : <AccountsIcon style={{width:22,height:22}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/account")}
@@ -154,7 +154,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Budgets" ?<Text size={"lg"} fw={600}>Budgets</Text>:<Text size={"lg"}>Budgets</Text>}
+                      label={props.currentPage === "Budgets" ?<Text size={"lg"} fw={600}>Ngân sách</Text>:<Text size={"lg"}>Ngân sách</Text>}
                       icon={props.currentPage === "Budgets" ?<BudgetIconBlue style={{width:22,height:22}}/> : <BudgetIcon style={{width:22,height:22}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/budget")}
@@ -162,7 +162,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Goals" ?<Text size={"lg"} fw={600}>Goals</Text>:<Text size={"lg"}>Goals</Text>}
+                      label={props.currentPage === "Goals" ?<Text size={"lg"} fw={600}>Mục tiêu</Text>:<Text size={"lg"}>Mục tiêu</Text>}
                       icon={props.currentPage === "Goals" ?<GoalsIconBlue style={{width:22,height:22}}/> : <GoalsIcon style={{width:22,height:22}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/goal")}
@@ -170,7 +170,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Debts" ?<Text size={"lg"} fw={600}>Debts</Text>:<Text size={"lg"}>Debts</Text>}
+                      label={props.currentPage === "Debts" ?<Text size={"lg"} fw={600}>Khoản nợ</Text>:<Text size={"lg"}>Khoản nợ</Text>}
                       icon={props.currentPage === "Debts" ?<DebtsIconBlue style={{width:22,height:22}}/> : <DebtsIcon style={{width:22,height:22}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/debts")}
@@ -178,7 +178,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Reports" ?<Text size={"lg"} fw={600}>Reports</Text>:<Text size={"lg"}>Reports</Text>}
+                      label={props.currentPage === "Reports" ?<Text size={"lg"} fw={600}>Báo cáo</Text>:<Text size={"lg"}>Báo cáo</Text>}
                       icon={props.currentPage === "Reports" ?<ReportsIconBlue style={{width:22,height:22}}/> : <ReportsIcon style={{width:22,height:22}}/>}
                       onClick={() => navigate("/report")}
                       rightSection={<></>}
@@ -189,7 +189,7 @@ export default function SideBar(props) {
                 <Box>
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10}}
-                      label={props.currentPage === "Dashboard" ?<Text fw={600}>Dashboard</Text>:<Text>Dashboard</Text>}
+                      label={props.currentPage === "Dashboard" ?<Text fw={600}>Tổng quan</Text>:<Text>Tổng quan</Text>}
                       icon={props.currentPage === "Dashboard" ?<DashboardIconBlue style={{width:16,height:16}}/> : <DashboardIcon style={{width:16,height:16}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/dashboard")}
@@ -197,7 +197,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Transactions" ?<Text fw={600}>Transactions</Text>:<Text>Transactions</Text>}
+                      label={props.currentPage === "Transactions" ?<Text fw={600}>Giao dịch</Text>:<Text>Giao dịch</Text>}
                       icon={props.currentPage === "Transactions" ?<TransactionsIconBlue style={{width:16,height:16}}/> : <TransactionsIcon style={{width:16,height:16}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/transaction")}
@@ -205,7 +205,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10}}
-                      label={props.currentPage === "Accounts" ?<Text fw={600}>Accounts</Text>:<Text>Accounts</Text>}
+                      label={props.currentPage === "Accounts" ?<Text fw={600}>Tài khoản</Text>:<Text>Tài khoản</Text>}
                       icon={props.currentPage === "Accounts" ?<AccountsIconBlue style={{width:16,height:16}}/> : <AccountsIcon style={{width:16,height:16}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/account")}
@@ -213,7 +213,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Budgets" ?<Text fw={600}>Budgets</Text>:<Text>Budgets</Text>}
+                      label={props.currentPage === "Budgets" ?<Text fw={600}>Ngân sách</Text>:<Text>Ngân sách</Text>}
                       icon={props.currentPage === "Budgets" ?<BudgetIconBlue style={{width:16,height:16}}/> : <BudgetIcon style={{width:16,height:16}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/budget")}
@@ -221,7 +221,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Goals" ?<Text fw={600}>Goals</Text>:<Text>Goals</Text>}
+                      label={props.currentPage === "Goals" ?<Text fw={600}>Mục tiêu</Text>:<Text>Mục tiêu</Text>}
                       icon={props.currentPage === "Goals" ?<GoalsIconBlue style={{width:16,height:16}}/> : <GoalsIcon style={{width:16,height:16}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/goal")}
@@ -229,7 +229,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Debts" ?<Text fw={600}>Debts</Text>:<Text>Debts</Text>}
+                      label={props.currentPage === "Debts" ?<Text fw={600}>Khoản nợ</Text>:<Text>Khoản nợ</Text>}
                       icon={props.currentPage === "Debts" ?<DebtsIconBlue style={{width:16,height:16}}/> : <DebtsIcon style={{width:16,height:16}}/>}
                       rightSection={<></>}
                       onClick={() => navigate("/debts")}
@@ -237,7 +237,7 @@ export default function SideBar(props) {
                   />
                   <NavLink
                       style={{ borderRadius: 8,marginBottom:10 }}
-                      label={props.currentPage === "Reports" ?<Text fw={600}>Reports</Text>:<Text>Reports</Text>}
+                      label={props.currentPage === "Reports" ?<Text fw={600}>Báo cáo</Text>:<Text>Báo cáo</Text>}
                       icon={props.currentPage === "Reports" ?<ReportsIconBlue style={{width:16,height:16}}/> : <ReportsIcon style={{width:16,height:16}}/>}
                       onClick={() => navigate("/report")}
                       rightSection={<></>}
@@ -256,29 +256,29 @@ export default function SideBar(props) {
                         radius={"md"}
                         fullWidth
                     >
-                      Add
+                      Thêm mới
                     </Button>
                   </div>
 
                 </Menu.Target>
                 <Menu.Dropdown>
                   <Menu.Item icon={<AddCategoryIcon style={{height:20,width:20}} />}  transitionProps={{ transition: 'rotate-right', duration: 150 }} onClick={() => dispatch(showCategoryForm())}>
-                    <Text size={"sm"}>Add Category</Text>
+                    <Text size={"sm"}>Thêm danh mục</Text>
                   </Menu.Item>
                   <Menu.Item icon={<AddAccountIcon style={{height:20,width:20}} />}  transitionProps={{ transition: 'rotate-right', duration: 150 }} onClick={() => dispatch(showAccountForm())}>
-                    Add Account
+                    Thêm tài khoản
                   </Menu.Item>
                   <Menu.Item icon={<AddTransactionIcon style={{height:20,width:20}} />}  transitionProps={{ transition: 'rotate-right', duration: 150 }} onClick={() => dispatch(showTransactionForm())}>
-                    Add Transaction
+                    Thêm giao dịch
                   </Menu.Item>
                   <Menu.Item icon={<AddBudgetIcon style={{height:20,width:20}} />}  transitionProps={{ transition: 'rotate-right', duration: 150 }} onClick={() =>dispatch(showBudgetForm())}>
-                    Add Budget
+                    Thêm ngân sách
                   </Menu.Item>
                   <Menu.Item icon={<AddGoalIcon style={{height:20,width:20}} />}  transitionProps={{ transition: 'rotate-right', duration: 150 }} onClick={() => dispatch(showGoalForm())}>
-                    Add Goal
+                    Thêm mục tiêu
                   </Menu.Item>
                   <Menu.Item icon={<AddDebtIcon style={{height:20,width:20}} />}  transitionProps={{ transition: 'rotate-right', duration: 150 }}  >
-                    Add Debt
+                    Thêm khoản nợ
                   </Menu.Item>
                 </Menu.Dropdown>
               </Menu>
