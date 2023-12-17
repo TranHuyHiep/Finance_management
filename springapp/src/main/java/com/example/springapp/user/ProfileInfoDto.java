@@ -1,23 +1,23 @@
 package com.example.springapp.user;
 
-public class ProfileNameDto {
+import lombok.Data;
+
+import java.util.Date;
+
+@Data
+public class ProfileInfoDto {
     private String firstName;
 
     private String lastName;
 
-    public String getFirstName() {
-        return firstName;
-    }
+    private String email;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    private byte[] profileImage;
 
-    public String getLastName() {
-        return lastName;
-    }
+    private Date birthday;
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    private String gender;
+
+    private String phone;
+
 }

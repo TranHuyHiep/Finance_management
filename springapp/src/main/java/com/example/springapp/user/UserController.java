@@ -76,6 +76,17 @@ public class UserController {
 		}
 	}
 
+	@PostMapping("/api/profile/info")
+	public ResponseEntity<BaseResponceDto> updateProfileInfo(@RequestHeader(value = "Authorization", defaultValue = "") String token,@RequestBody ProfileInfoDto profileInfoDto){
+		try {
+			String userName = jwtGenerator.getUsernameFromJWT(jwtGenerator.getTokenFromHeader(token));
+			userService.updateUserProfileInfo(profileInfoDto,userName);
+			return ResponseEntity.ok(new BaseResponceDto("success"));
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new BaseResponceDto("Failed to update user profile name."));
+		}
+	}
+
 	@PostMapping("/api/profile/email")
 	public ResponseEntity<BaseResponceDto> updateProfileName(@RequestHeader(value = "Authorization", defaultValue = "") String token,@RequestBody ProfileEmailDto profileEmailDto){
 		try {

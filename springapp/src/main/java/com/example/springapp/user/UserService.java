@@ -25,5 +25,7 @@ public interface UserService {
 	ResponseEntity<BaseResponceDto> login(LoginDto user);
 
     void newPassword(String email, String password);
+
+    void updateUserProfileInfo(ProfileInfoDto profileInfoDto, String userName);
 }
 

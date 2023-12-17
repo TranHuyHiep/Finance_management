@@ -112,6 +112,21 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public void updateUserProfileInfo(ProfileInfoDto profileInfoDto, String userName) {
+		UserEntity user = userRepository.findByEmail(userName).orElseThrow();
+		user.setFirstName(profileInfoDto.getFirstName());
+		user.setLastName(profileInfoDto.getLastName());
+		user.setEmail(profileInfoDto.getEmail());
+		if(profileInfoDto.getProfileImage() != null) {
+			user.setProfileImage(profileInfoDto.getProfileImage());
+		}
+		user.setBirthday(profileInfoDto.getBirthday());
+		user.setGender(profileInfoDto.getGender());
+		user.setPhone(profileInfoDto.getPhone());
+		userRepository.save(user);
+	}
+
+	@Override
 	public ResponseEntity<BaseResponceDto> updatePassword(ProfilePasswordDto profilePasswordDto, String userName) {
 		UserEntity user = userRepository.findByEmail(userName).orElseThrow();
 		if(new BCryptPasswordEncoder().matches(profilePasswordDto.getOldPassword(), user.getPassword())) {

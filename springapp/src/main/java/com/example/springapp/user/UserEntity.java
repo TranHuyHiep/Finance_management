@@ -1,5 +1,6 @@
 package com.example.springapp.user;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -22,6 +23,36 @@ public class UserEntity extends BaseEntity {
 
 	@Column(length = 1048576)
 	private byte[] profileImage;
+
+	private Date birthday;
+
+	private String gender;
+
+	private String phone;
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
 	public byte[] getProfileImage() {
 		return profileImage;
