@@ -7,6 +7,7 @@ import {
     editEmailService,
     editPasswordService,
     editImageService,
+    editInfoService,
     verifySecurityCode, sendVerificationSecurityCode, sendVerificationSecurityCodeForFP, resetPassword
 } from "../api/userService";
 import {notifications} from "@mantine/notifications";
@@ -122,6 +123,25 @@ export const editName =
             return err.response
         })
     })
+
+//Edit info
+export const editInfo = 
+createAsyncThunk('user/editInfo', async(body) => {
+    return editInfoService(
+        body.token,
+        body.firstName,
+        body.lastName,
+        body.email,
+        body.profileImage,
+        body.birthday,
+        body.gender,
+        body.phone
+    ).then((res) =>{
+        return res.data
+    }).catch((err) =>{
+        return err.response
+    })
+})
 //Edit email
 export const editEmail = 
     createAsyncThunk('user/editEmail', async(body) => {
@@ -175,7 +195,11 @@ export const userSlice = createSlice({
             firstName:'',
             lastName:'',
             email:'',
-            userId:''
+            userId:'',
+            profileImage:'',
+            birthday:'',
+            gender:'',
+            phone:''
         },
         token:null,
         isMobile:false,
@@ -200,7 +224,10 @@ export const userSlice = createSlice({
                 lastName:'',
                 email:'',
                 profileImage:'',
-                userId:''
+                userId:'',
+                birthday:'',
+                gender:'',
+                phone:''
             }
         },
         openSignupForm:(state)=>{
@@ -314,6 +341,9 @@ export const userSlice = createSlice({
                 state.currentUser.email = action.payload.data.user.email
                 state.currentUser.userId = action.payload.data.user.userId
                 state.currentUser.profileImage = action.payload.data.user.profileImage
+                state.currentUser.birthday = action.payload.data.user.birthday
+                state.currentUser.gender = action.payload.data.user.gender
+                state.currentUser.phone = action.payload.data.user.phone
             }else {
                 state.loginError = action.payload.message
                 state.token = null

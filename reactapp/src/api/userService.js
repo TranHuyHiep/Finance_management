@@ -50,6 +50,22 @@ export async function editNameService(token, firstName, lastName) {
     })
 }
 
+
+// edit info
+export async function editInfoService(token, firstName, lastName, email, profileImage, birthday, gender, phone) {
+    return await axios.post(`${baseUrl}/profile/info`,{
+        "firstName": firstName,
+        "lastName": lastName, 
+        "email": email,
+        "profileImage": profileImage,
+        "birthday": birthday,
+        "gender": gender,
+        "phone": phone
+    }, {
+        headers: { Authorization: `Bearer ${token}` }
+    })
+}
+
 // edit email
 export async function editEmailService(token, inemail) {
     return await axios.post(`${baseUrl}/profile/email`,{

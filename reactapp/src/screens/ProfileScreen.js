@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import {
-    Divider,
-    Text,
-    Space,
-    Button,
-    Modal,
-    Container, Title,
+  Divider,
+  Text,
+  Space,
+  Button,
+  Modal,
+  Container, Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import EditNameForm from "../components/settings/EditNameForm";
@@ -14,9 +14,10 @@ import ChangePasswordForm from "../components/settings/ChangePasswordForm";
 import DeleteAccount from "../components/settings/DeleteAccount";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import {ReactComponent as AvatarIcon} from "../assets/User_duotone.svg";
+import { ReactComponent as AvatarIcon } from "../assets/User_duotone.svg";
 import { editImage, validateToken } from "../features/userSlice";
 import Layout from "../components/Layout";
+import EditInfoForm from "../components/settings/EditInfoForm";
 
 export default function ProfileScreen() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -43,7 +44,7 @@ export default function ProfileScreen() {
   return (
     <>
       <Layout title={""} load={true}>
-          <Title style={{ margin: 5 }} order={2}>Thông tin cá nhân</Title>
+        <Title style={{ margin: 5 }} order={2}>Thông tin cá nhân</Title>
         <div
           style={{
             marginTop: "10px",
@@ -73,23 +74,10 @@ export default function ProfileScreen() {
               <Text c={"dimmed"} fw={700} style={{ width: "100%" }}>
                 Họ và tên
               </Text>
-
               <Space h="lg" />
-              <Text fw={500} fz="lg" style={{ display: "inline", maxWidth:"calc(100%-75px)", textOverflow: "ellipsis", overflow: "hidden", whiteSpace:"nowrap" }}>
+              <Text fw={500} fz="lg" style={{ display: "inline", maxWidth: "calc(100%-75px)", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
                 {currentUser.firstName} {currentUser.lastName}
               </Text>
-              <Button
-                variant="default"
-                color="dark"
-                radius="md"
-                onClick={() => {
-                    setFormName("Edit Name")
-                  setForm(<EditNameForm close={close} />);
-                  open();
-                }}
-              >
-                Chỉnh sửa
-              </Button>
             </div>
             <Space h="lg" />
 
@@ -107,23 +95,72 @@ export default function ProfileScreen() {
                 Email
               </Text>
               <Space h="lg" />
-              <Text fw={500} fz="lg" style={{ display: "inline", maxWidth:"calc(100%-75px)", textOverflow: "ellipsis", overflow: "hidden", whiteSpace:"nowrap" }}>
+              <Text fw={500} fz="lg" style={{ display: "inline", maxWidth: "calc(100%-75px)", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
                 {currentUser.email}
               </Text>
-              <Button
-                variant="default"
-                color="dark"
-                radius="md"
-                
-                onClick={() => {
-                    setFormName("Edit Email")
-                  setForm(<EditEmailForm close={close} />);
-                  open();
-                }}
-              >
-                Chỉnh sửa
-              </Button>
             </div>
+            <Space h="lg" />
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                maxWidth: "450px",
+                alignItems: "center",
+                gap: "10px 0",
+              }}
+            >
+              <Text c={"dimmed"} fw={700} style={{ width: "100%" }}>
+                Giới tính
+              </Text>
+              <Space h="lg" />
+              <Text fw={500} fz="lg" style={{ display: "inline", maxWidth: "calc(100%-75px)", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
+                {currentUser.gender}
+              </Text>
+            </div>
+            <Space h="lg" />
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                maxWidth: "450px",
+                alignItems: "center",
+                gap: "10px 0",
+              }}
+            >
+              <Text c={"dimmed"} fw={700} style={{ width: "100%" }}>
+                Ngày sinh
+              </Text>
+              <Space h="lg" />
+              <Text fw={500} fz="lg" style={{ display: "inline", maxWidth: "calc(100%-75px)", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
+                {formatDate(currentUser.birthday)}
+              </Text>
+            </div>
+            <Space h="lg" />
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                maxWidth: "450px",
+                alignItems: "center",
+                gap: "10px 0",
+              }}
+            >
+              <Text c={"dimmed"} fw={700} style={{ width: "100%" }}>
+                Số điện thoại
+              </Text>
+              <Space h="lg" />
+              <Text fw={500} fz="lg" style={{ display: "inline", maxWidth: "calc(100%-75px)", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
+                {currentUser.phone}
+              </Text>
+            </div>
+            <Space h="lg" />
+
           </div>
           <div
             style={{
@@ -153,15 +190,15 @@ export default function ProfileScreen() {
                   }}
                 />
               ) : (
-                  <AvatarIcon  style={{
-                      width: 150,
-                      height: 150,
-                      objectFit: "contain",
-                      borderStyle:"solid",
-                      borderWidth:1,
-                      borderColor:"rgba(0,0,0,0.2)",
-                      borderRadius: "1000px",
-                  }}/>
+                <AvatarIcon style={{
+                  width: 150,
+                  height: 150,
+                  objectFit: "contain",
+                  borderStyle: "solid",
+                  borderWidth: 1,
+                  borderColor: "rgba(0,0,0,0.2)",
+                  borderRadius: "1000px",
+                }} />
                 // <img
                 //   src={logo}
                 //   alt="Default image"
@@ -185,7 +222,7 @@ export default function ProfileScreen() {
                 radius="md"
                 style={{ position: "absolute", bottom: "0", left: "100px" }}
                 type="file"
-                // onClick={open}
+              // onClick={open}
               >
                 Chỉnh sửa
               </Button>
@@ -207,7 +244,7 @@ export default function ProfileScreen() {
             radius="md"
             style={{ width: "200px" }}
             onClick={() => {
-                setFormName("Change Passwod")
+              setFormName("Change Passwod")
               setForm(<ChangePasswordForm close={close} />);
               open();
             }}
@@ -221,12 +258,26 @@ export default function ProfileScreen() {
             radius="md"
             style={{ width: "200px" }}
             onClick={() => {
-                setFormName("Delete Account")
+              setFormName("Delete Account")
               setForm(<DeleteAccount />);
               open();
             }}
           >
             Xoá tài khoản
+          </Button>
+          <Space h="lg" />
+          <Button
+            variant="default"
+            color="dark"
+            radius="md"
+            style={{ width: "200px" }}
+            onClick={() => {
+              setFormName("Thay đổi thông tin")
+              setForm(<EditInfoForm close={close} />);
+              open();
+            }}
+          >
+            Thay đổi thông tin
           </Button>
         </div>
         <Modal
@@ -236,21 +287,34 @@ export default function ProfileScreen() {
           size="sm"
           centered
           overlayProps={{
-              color: "white",
-              opacity: 0.55,
-              blur: 3,
+            color: "white",
+            opacity: 0.55,
+            blur: 3,
           }}
           title={<Title style={{ marginLeft: 10 }} order={3}>
-              {formName}
+            {formName}
           </Title>}
         >
-            <Container>
+          <Container>
 
-                {form}
-            </Container>
+            {form}
+          </Container>
 
         </Modal>
       </Layout>
     </>
   );
 }
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Months are zero-based
+  const year = date.getFullYear();
+
+  // Pad single-digit day and month with leading zero
+  const formattedDay = day < 10 ? `0${day}` : day;
+  const formattedMonth = month < 10 ? `0${month}` : month;
+
+  return `${formattedDay}/${formattedMonth}/${year}`;
+}
+
