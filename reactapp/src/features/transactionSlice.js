@@ -82,22 +82,22 @@ const transactionSlice = createSlice({
     extraReducers:{
         [addTransaction.pending]:(state) => {
             state.addTransactionInProcess = true
-            console.log("Transaction Add pending")
+            console.log("Giao dịch đã được thêm vào hàng chờ")
         },
         [addTransaction.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
                 notifications.show({
-                    title: 'Transaction Added',
-                    message: 'your transaction added successfuly!!',
+                    title: 'Thêm giao dịch thành công',
+                    message: 'Giao dịch của bạn đã được thêm thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
                 })
-                console.log("Transaction Created")
+                console.log("Giao dịch đã được tạo")
             }else {
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                 })
@@ -108,10 +108,10 @@ const transactionSlice = createSlice({
         },
         [addTransaction.rejected]:(state)=>{
             state.addTransactionInProcess = false
-            console.log("Transaction Create failed")
+            console.log("Tạo giao dịch thất bại")
             notifications.show({
-                title: "Transaction Create failed",
-                message: 'Please try again!!',
+                title: "Giao dịch tạo thất bại",
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
             })
@@ -124,17 +124,17 @@ const transactionSlice = createSlice({
 
             if(action.payload.message ==="success"){
                 notifications.show({
-                    title: 'Transaction Updated',
-                    message: 'your transaction updated successfuly!!',
+                    title: 'Cập nhật giao dịch thành công',
+                    message: 'Giao dịch của bạn được cập nhật thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
                 })
-                console.log("Transaction Updated")
+                console.log("Giao dịch đã được chỉnh sửa")
             }else {
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                 })
@@ -144,8 +144,8 @@ const transactionSlice = createSlice({
         },
         [editTransaction.rejected]:(state)=>{
             notifications.show({
-                title: "Transaction Create failed",
-                message: 'Please try again!!',
+                title: "Tạo giao dịch thất bại",
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
             })
@@ -158,17 +158,17 @@ const transactionSlice = createSlice({
 
             if(action.payload.message ==="success"){
                 notifications.show({
-                    title: 'Transaction Deleted',
-                    message: 'your transaction Deleted successfuly!!',
+                    title: 'Giao dịch đã được xoá',
+                    message: 'Giao dịch của bạn đã được xoá thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
                 })
-                console.log("Transaction Deleted")
+                console.log("Giao dịch đã được xoá")
             }else {
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                 })
@@ -177,21 +177,21 @@ const transactionSlice = createSlice({
         },
         [removeTransaction.rejected]:(state)=>{
             notifications.show({
-                title: "Transaction Deleted failed",
-                message: 'Please try again!!',
+                title: "Xoá giao dịch thất bại",
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
             })
         },
         [fetchTransaction.pending]:(state) => {
             state.fetchTransactionInProcess = true
-            console.log("Transaction fetch pending")
+            console.log("Giao dịch đang đồng bộ")
         },
         [fetchTransaction.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
                 console.log(state.transactionList)
                 state.transactionList = action.payload.data
-                console.log("Transaction fetched")
+                console.log("Giao dịch đã được đồng bộ")
                 console.log(state.transactionList)
             }else {
                 console.log(action.payload.message)
@@ -200,7 +200,7 @@ const transactionSlice = createSlice({
         },
         [fetchTransaction.rejected]:(state)=>{
             state.fetchTransactionInProcess = false
-            console.log("Transaction fetch failed")
+            console.log("Đồng bộ giao dịch thất bại")
         },
     }
 })

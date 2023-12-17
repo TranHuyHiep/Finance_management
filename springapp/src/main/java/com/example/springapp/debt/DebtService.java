@@ -79,7 +79,7 @@ public class DebtService {
     }
     private Date parseDueDate(String dueDate) {
         try {
-            SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
             return formatter.parse(dueDate);
         } catch (ParseException e) {
             e.printStackTrace();

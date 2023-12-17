@@ -75,8 +75,8 @@ const accountSlice = createSlice({
         [addAccount.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
                 notifications.show({
-                    title: 'Account Added',
-                    message: 'your account added successfuly!!',
+                    title: 'Tạo tài khoản thành công',
+                    message: 'Tài khoản của bạn đã được tạo thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
@@ -84,7 +84,7 @@ const accountSlice = createSlice({
             }else {
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -96,8 +96,8 @@ const accountSlice = createSlice({
         [addAccount.rejected]:(state)=>{
             state.addAccountInProcess = false
             notifications.show({
-                title: "Account Create failed",
-                message: 'Please try again!!',
+                title: "Tạo tài khoản thất bại",
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,
@@ -105,7 +105,7 @@ const accountSlice = createSlice({
         },
         [fetchAccount.pending]:(state) => {
             state.fetchAccountInProcess = true
-            console.log("Account fetch pending")
+            console.log("Tài khoản đang đồng bộ")
         },
         [fetchAccount.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
@@ -117,16 +117,16 @@ const accountSlice = createSlice({
         },
         [fetchAccount.rejected]:(state)=>{
             state.fetchAccountInProcess = false
-            console.log("Account fetch failed")
+            console.log("Đồng bộ tài khoản thất bại")
         },
         [changeAccount.pending]:(state) => {
-            console.log("Account update pending")
+            console.log("Đang chỉnh sửa tài khoản")
         },
         [changeAccount.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
                 notifications.show({
-                    title: 'Account Updated',
-                    message: 'your account updated successfuly!!',
+                    title: 'Tài khoản đã được cập nhật',
+                    message: 'Tài khoản của bạn được cập nhật thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
@@ -135,7 +135,7 @@ const accountSlice = createSlice({
                 console.log(action.payload.message)
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -144,23 +144,23 @@ const accountSlice = createSlice({
             state.fetchAccountInProcess =false
         },
         [changeAccount.rejected]:(state)=>{
-            console.log("Account update failed")
+            console.log("Cập nhật tài khoản thất bại")
             notifications.show({
-                title: "Account update failed",
-                message: 'Please try again!!',
+                title: "Tài khoản của bạn cập nhật thất bại",
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,
             })
         },
         [removeAccount.pending]:(state) => {
-            console.log("Account update pending")
+            console.log("Tài khoản đang được cập nhật")
         },
         [removeAccount.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
                 notifications.show({
-                    title: 'Account Deleted',
-                    message: 'your account deleted successfuly!!',
+                    title: 'Đã xoá tài khoản',
+                    message: 'Tài khoản của bạn đã được xoá thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
@@ -169,7 +169,7 @@ const accountSlice = createSlice({
                 console.log(action.payload.message)
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -178,10 +178,10 @@ const accountSlice = createSlice({
             state.fetchAccountInProcess =false
         },
         [removeAccount.rejected]:(state)=>{
-            console.log("Account Delete failed")
+            console.log("Xoá tài khoản thất bại")
             notifications.show({
-                title: "Account deleted failed",
-                message: 'Please try again!!',
+                title: "Xoá tài khoản thất bại",
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,

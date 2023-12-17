@@ -4,6 +4,7 @@ import com.example.springapp.account.Account;
 import com.example.springapp.category.Category;
 import com.example.springapp.user.UserEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 

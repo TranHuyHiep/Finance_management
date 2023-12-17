@@ -65,7 +65,7 @@ function BudgetForm(props) {
                    props.close()
                }} centered>
             <LoadingOverlay visible={addBudgetInProcess} overlayBlur={2}/>
-            <Title style={{marginLeft: 10,marginBottom:20}} order={3}>Add Budget</Title>
+            <Title style={{marginLeft: 10,marginBottom:20}} order={3}>Thêm ngân sách</Title>
             <Container size="md">
                 <form onSubmit={form.onSubmit((values) => handleSubmit())}>
                     <Select

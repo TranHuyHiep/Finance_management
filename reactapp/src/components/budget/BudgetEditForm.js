@@ -36,7 +36,7 @@ function BudgetEditForm(props) {
         dispatch(fetchCategory({token:token}))
         form.setFieldValue('amount',props?.element?.amount)
         form.setFieldValue('categoryId',props?.element?.category?.categoryId)
-    },[dispatch, form, props?.element?.amount, props?.element?.category?.categoryId, token])
+    },[dispatch, props?.element?.amount, props?.element?.category?.categoryId, token])
 
     async function handleSubmit() {
         await dispatch(editBudget({...form.values,token: token,budgetId:props.element.id}))
@@ -81,7 +81,7 @@ function BudgetEditForm(props) {
                    props.close()
                }} centered>
             <LoadingOverlay visible={addBudgetEditInProcess} overlayBlur={2}/>
-            <Title style={{marginLeft: 10,marginBottom:20}} order={3}>Edit Budget</Title>
+            <Title style={{marginLeft: 10,marginBottom:20}} order={3}>Chỉnh sửa ngân sách</Title>
             <Container size="md">
                 <form onSubmit={form.onSubmit((values) => handleSubmit())}>
                     <Select

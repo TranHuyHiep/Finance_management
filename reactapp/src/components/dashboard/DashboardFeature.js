@@ -1,52 +1,56 @@
-import {Grid, Paper, Text} from "@mantine/core";
-import {useSelector} from "react-redux";
+import { Grid, Paper, Text } from "@mantine/core";
+import { useSelector } from "react-redux";
 
-export default function  DashboardFeture(){
+export default function DashboardFeture() {
     const accountList = useSelector(state => state.account.accountList)
     const budgetList = useSelector(state => state.budget.budgetList)
     const debtPending = 0;
     const goalList = useSelector(state => state.goal.goalList)
-    function handleTotalBalanace(){
+    function handleTotalBalanace() {
         return accountList.reduce(
             (accumulator, currentValue) => accumulator + currentValue.currentBalance,
             0
         );
     }
 
-    function pendingGoals(){
-        let pendings=0
-        for (let i=0;i<goalList.length;i++){
-            if(goalList[i].status === 'Pending'){
-                pendings = pendings +1
+    function pendingGoals() {
+        let pendings = 0
+        for (let i = 0; i < goalList.length; i++) {
+            if (goalList[i].status === 'Pending') {
+                pendings = pendings + 1
             }
         }
         return pendings
     }
 
-    function handleTotalBudget(){
+    function handleTotalBudget() {
         return budgetList.reduce(
             (accumulator, currentValue) => accumulator + currentValue.amount,
             0
         );
     }
-    function handleTotalUsed(){
+    function handleTotalUsed() {
         return budgetList.reduce(
             (accumulator, currentValue) => accumulator + currentValue.used,
             0
         );
     }
-    return(
+    return (
         <div>
             <Paper style={{ marginBottom: 16 }} radius="md" p="md" withBorder>
                 <Grid>
                     <Grid.Col span={6} sm={6} md={3}>
-                        <Text size={"xl"} fw={700}>{handleTotalBalanace()>0 ? `${handleTotalBalanace().toLocaleString("en-US")} VND` : `-`}</Text>
+                        {handleTotalBalanace() > 0 ?
+                            <Text size={"xl"} fw={700} color="#26AB35">{handleTotalBalanace().toLocaleString("en-US")} VND</Text>
+                            :
+                            <Text size={"xl"} fw={700} color="#FF4040">{handleTotalBalanace().toLocaleString("en-US")} VND</Text>
+                        }
                         <Text size={"sm"} fw={700} c="dimmed">
                             TỔNG SỐ DƯ
                         </Text>
                     </Grid.Col>
                     <Grid.Col span={6} sm={6} md={3}>
-                        <Text size={"xl"} fw={700}>{handleTotalBudget()>0 ? `${Math.floor((100 * handleTotalUsed()) / handleTotalBudget())}%` : `-`}</Text>
+                        <Text size={"xl"} fw={700}>{handleTotalBudget() > 0 ? `${Math.floor((100 * handleTotalUsed()) / handleTotalBudget())}%` : `-`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
                             NGÂN SÁCH ĐÃ SỬ DỤNG
                         </Text>

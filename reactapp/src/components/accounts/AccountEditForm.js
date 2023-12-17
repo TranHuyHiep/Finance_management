@@ -43,7 +43,7 @@ export default function AccountEditForm(props) {
         form.setFieldValue('name',props?.element?.name)
         form.setFieldValue('currentBalance',props?.element?.currentBalance)
         form.setFieldValue('paymentTypes',props?.element?.paymentTypes)
-    },[form, props?.element?.currentBalance, props?.element?.name, props?.element?.paymentTypes])
+    },[props?.element?.currentBalance, props?.element?.name, props?.element?.paymentTypes])
 
     async function handleDelete() {
         await dispatch(removeAccount({token: token, accountId: props.element.accountId}))
@@ -75,7 +75,7 @@ export default function AccountEditForm(props) {
             blur: 3,
         }} withCloseButton={false} closeOnClickOutside={false} radius="lg" size="sm" opened={props.open} onClose={() => { props.close() }} centered>
             <LoadingOverlay visible={addAccountInProcess} overlayBlur={2} />
-            <Title style={{ marginLeft: 10 }} order={3}>Thêm tài khoản</Title>
+            <Title style={{ marginLeft: 10 }} order={3}>Sửa tài khoản</Title>
             <Container size="md">
                 <form onSubmit={form.onSubmit((values) => handleUpdate())}>
                     <TextInput radius="md" style={{ marginTop: 16 }}

@@ -29,10 +29,10 @@ export default function CategoryForm(props) {
     },
     validate: {
       name: (value) => (
-          value !== '' ? null : 'Name is required'
+          value !== '' ? null : 'Yêu cầu nhập tên'
       ),
       type: (value) => (
-          value !== '' ? null : 'Select the type'
+          value !== '' ? null : 'Chọn kiểu'
       ),
     },
   });
@@ -71,7 +71,7 @@ export default function CategoryForm(props) {
     >
       <LoadingOverlay visible={addCategoryInProcess} overlayBlur={2} />
       <Title style={{ marginLeft: 10 }} order={3}>
-        Add Category
+        Thêm danh mục
       </Title>
       <Container size="md">
         <form
@@ -83,31 +83,31 @@ export default function CategoryForm(props) {
             radius="md"
             style={{ marginTop: 16 }}
             withAsterisk
-            label="Name"
-            placeholder="Name"
+            label="Tên"
+            placeholder="Nhập tên"
             type="text"
             {...form.getInputProps("name")}
           />
           <Textarea
             radius="md"
             style={{ marginTop: 16 }}
-            label="Description"
-            placeholder="Description"
+            label="Mô tả"
+            placeholder="Nhập mô tả"
             type="textarea"
             {...form.getInputProps("description")}
           />
           <Radio.Group
             radius="md"
             style={{ marginTop: 16 }}
-            name="categoryType"
-            label="Type"
-            description="select type of the category"
+            name="Thể loại"
+            label="Loại"
+            description="Chọn thể loại"
             withAsterisk
             {...form.getInputProps("type")}
           >
             <Group mt="xs">
-              <Radio value="expense" label="Expense" />
-              <Radio value="income" label="Income" />
+              <Radio value="expense" label="Chi" />
+              <Radio value="income" label="Thu" />
             </Group>
           </Radio.Group>
 
@@ -120,12 +120,12 @@ export default function CategoryForm(props) {
           >
             <Grid.Col span={"auto"}>
               <Button radius="md" variant={"default"} fullWidth onClick={() => setShowDiscard(true)}>
-                Discard
+                Huỷ bỏ
               </Button>
             </Grid.Col>
             <Grid.Col span={"auto"}>
               <Button radius="md" fullWidth type="submit">
-                Save
+                Lưu
               </Button>
             </Grid.Col>
           </Grid>
@@ -136,18 +136,18 @@ export default function CategoryForm(props) {
             color: "red",
             blur: 3,
           }}
-          size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Confirm Discard">
-        <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>You will lose all the content you entered</Text>
+          size="auto" withinPortal={true} closeOnClickOutside={false} trapFocus={false} withOverlay={false} opened={showDiscard} onClose={handleDiscardCancel} radius="lg" centered  withCloseButton={false} title="Xác nhận huỷ">
+        <Text size={"sm"} c={"dimmed"} style={{marginBottom:10}}>Nếu bạn huỷ, dữ liệu vừa nhập sẽ mất hết</Text>
         <Grid
         >
           <Grid.Col span={"auto"}>
             <Button radius="md" color="gray" fullWidth  onClick={() => setShowDiscard(false)}>
-              No
+              Không
             </Button>
           </Grid.Col>
           <Grid.Col span={"auto"}>
             <Button color={"red"} onClick={()=> handleDiscard()} radius="md" fullWidth type="submit">
-              Yes
+              Có
             </Button>
           </Grid.Col>
         </Grid>

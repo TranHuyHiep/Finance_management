@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import TransactionEditForm from "./TransactionEditForm";
 import {useState} from "react";
 
-export default function TransactionList() {
+export default function DebtList() {
     const transactionList = useSelector(state => state.transaction.transactionList)
     const isMobile = useSelector(state => state.user.isMobile)
     const [displayTransactionEditForm,setDisplayTransactionEditForm] = useState(false);

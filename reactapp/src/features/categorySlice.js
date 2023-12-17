@@ -51,8 +51,8 @@ const categorySlice = createSlice({
         [addCategory.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
                 notifications.show({
-                    title: 'Category Added',
-                    message: 'your category added successfuly!!',
+                    title: 'Danh mục đã được thêm',
+                    message: 'Danh mục của bạn đã được thêm thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
@@ -60,7 +60,7 @@ const categorySlice = createSlice({
             }else {
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -72,8 +72,8 @@ const categorySlice = createSlice({
         [addCategory.rejected]:(state)=>{
             state.addCategoryInProcess = false
             notifications.show({
-                title: "Category Create failed",
-                message: 'Please try again!!',
+                title: "Tạo danh mục thất bại",
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,
@@ -81,13 +81,13 @@ const categorySlice = createSlice({
         },
         [fetchCategory.pending]:(state) => {
             state.fetchCategoryInProcess = true
-            console.log("pending")
+            console.log("Chờ...")
         },
         [fetchCategory.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
                 console.log(state.categoryList)
                 state.categoryList = action.payload.data
-                console.log("Category fetched")
+                console.log("Danh mục đã được đồng bộ")
                 console.log(state.categoryList)
             }else {
                 console.log(action.payload.message)
@@ -96,7 +96,7 @@ const categorySlice = createSlice({
         },
         [fetchCategory.rejected]:(state)=>{
             state.fetchCategoryInProcess = false
-            console.log("Category fetch failed")
+            console.log("Đồng bộ danh mục thất bại")
         },
     }
 })

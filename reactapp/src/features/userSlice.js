@@ -241,10 +241,10 @@ export const userSlice = createSlice({
                 state.displayUserDetailsForm = true
                 state.displayOtpForm = false
                 state.displayPasswordForm = false
-                console.log("Account Created")
+                console.log("Tài khoản đã được tạo")
                 notifications.show({
-                    title: 'Account Created Successfully',
-                    message: 'Now you can login to you account with signin option',
+                    title: 'Tạo tài khoản thành công',
+                    message: 'Bây giờ, bạn có thể đăng nhập với tài khoản vừa tạo',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
@@ -253,7 +253,7 @@ export const userSlice = createSlice({
                 console.log(action.payload)
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -265,8 +265,8 @@ export const userSlice = createSlice({
             state.signupInProgress = false
             
             notifications.show({
-                title: 'Request Failed',
-                message: 'Please try again!!',
+                title: 'Yêu cầu thất bại',
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,
@@ -275,7 +275,7 @@ export const userSlice = createSlice({
         },
         [loginAccount.pending]:(state) => {
             state.signinInProgress = true
-            console.log("pending")
+            console.log("Chờ....")
         },
         [loginAccount.fulfilled]:(state,action) =>{
             state.signinInProgress =false
@@ -286,7 +286,7 @@ export const userSlice = createSlice({
             }else {
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -296,8 +296,8 @@ export const userSlice = createSlice({
         [loginAccount.rejected]:(state)=>{
             state.signinInProgress = false
             notifications.show({
-                title: "Something went wrong ",
-                message: 'Please try again!!',
+                title: "Đã có lỗi xảy ra ",
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,
@@ -319,7 +319,7 @@ export const userSlice = createSlice({
                 state.token = null
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please Login again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -328,10 +328,10 @@ export const userSlice = createSlice({
         },
         [validateToken.rejected]:(state)=>{
             state.token = null
-            console.log("validate token  failed")
+            console.log("validate token failed")
             notifications.show({
-                title: 'Session expired',
-                message: 'Login again!!',
+                title: 'Phiên làm việc hết hạn',
+                message: 'Đăng nhập lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,
@@ -339,17 +339,17 @@ export const userSlice = createSlice({
         },
         [sendVerificationCode.pending]:(state) => {
             state.signupInProgress = true
-            console.log("pending")
+            console.log("chờ....")
         },
         [sendVerificationCode.fulfilled]:(state,action) =>{
             state.signupInProgress =false
             if(action.payload?.status === 200){
                 state.displayUserDetailsForm = false
                 state.displayOtpForm = true
-                console.log("Account Created")
+                console.log("Tài khoản đã được tạo")
                 notifications.show({
-                    title: 'Verification Code Sent',
-                    message: 'verification code sent to your email ',
+                    title: 'Mã xác thực đã được gửi đi',
+                    message: 'Mã xãc thực đã được gửi tới email của bạn ',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
@@ -357,7 +357,7 @@ export const userSlice = createSlice({
             }else {
                 notifications.show({
                     title: action.payload?.data?.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -368,8 +368,8 @@ export const userSlice = createSlice({
             state.signupInProgress = false
             
             notifications.show({
-                title: 'Request Failed',
-                message: 'Please try again!!',
+                title: 'Yêu cầu thất bại',
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,
@@ -379,7 +379,7 @@ export const userSlice = createSlice({
         [verifyCode.pending]:(state) => {
             state.signupInProgress = true
             state.forgotPasswordInProgress = true
-            console.log("pending")
+            console.log("chờ...")
         },
         [verifyCode.fulfilled]:(state,action) =>{
             state.signupInProgress =false
@@ -388,8 +388,8 @@ export const userSlice = createSlice({
                 state.displayOtpForm = false
                 state.displayPasswordForm = true
                 notifications.show({
-                    title: 'Verified Successfully',
-                    message: 'code verified successfully ',
+                    title: 'Xác thực thành công',
+                    message: 'mã đã được xác thực thành công ',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
@@ -398,7 +398,7 @@ export const userSlice = createSlice({
                 console.log(action.payload)
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -409,8 +409,8 @@ export const userSlice = createSlice({
             state.signupInProgress = false
             state.forgotPasswordInProgress = false
             notifications.show({
-                title: 'Request Failed',
-                message: 'Please try again!!',
+                title: 'Yêu cầu thất bại',
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,
@@ -419,7 +419,7 @@ export const userSlice = createSlice({
         },
         [newPassword.pending]:(state) => {
             state.forgotPasswordInProgress = true
-            console.log("pending")
+            console.log("chờ...")
         },
         [newPassword.fulfilled]:(state,action) =>{
             state.forgotPasswordInProgress =false
@@ -429,8 +429,8 @@ export const userSlice = createSlice({
                 state.displayPasswordForm = false
                 state.displayMailForm = true
                 notifications.show({
-                    title: 'Password Reset Successfully',
-                    message: 'now you can login with your new password',
+                    title: 'Khôi phục mật khẩu thành công',
+                    message: 'Bây giờ bạn có thể đăng nhập bằng mật khẩu mới',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
@@ -439,7 +439,7 @@ export const userSlice = createSlice({
                 console.log(action.payload)
                 notifications.show({
                     title: action.payload.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -450,8 +450,8 @@ export const userSlice = createSlice({
             state.forgotPasswordInProgress = false
             
             notifications.show({
-                title: 'Request Failed',
-                message: 'Please try again!!',
+                title: 'Yêu cầu thất bại',
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,
@@ -460,17 +460,17 @@ export const userSlice = createSlice({
         },
         [sendVerificationCodeForFP.pending]:(state) => {
             state.forgotPasswordInProgress = true
-            console.log("pending")
+            console.log("chờ...")
         },
         [sendVerificationCodeForFP.fulfilled]:(state,action) =>{
             state.forgotPasswordInProgress =false
             if(action.payload?.status === 200){
                 state.displayMailForm = false
                 state.displayOtpForm = true
-                console.log("Account Created")
+                console.log("Tài khoản đã được tạo")
                 notifications.show({
-                    title: 'Verification Code Sent',
-                    message: 'verification code sent to your email ',
+                    title: 'Mã xác thực đã được gửi',
+                    message: 'mã xác thực đã được gửi tới email của bạn ',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
@@ -478,7 +478,7 @@ export const userSlice = createSlice({
             }else {
                 notifications.show({
                     title: action.payload?.data?.message,
-                    message: 'Please try again!!',
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -489,8 +489,8 @@ export const userSlice = createSlice({
             state.forgotPasswordInProgress = false
             
             notifications.show({
-                title: 'Request Failed',
-                message: 'Please try again!!',
+                title: 'Yêu cầu thất bại',
+                message: 'Vui lòng thử lại!!',
                 radius:"lg",
                 color:"red",
                 autoClose: 5000,

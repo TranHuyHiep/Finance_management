@@ -60,18 +60,18 @@ const BarChart = () => {
         labels,
         datasets: [
             {
-                label: 'Expenses',
+                label: 'Chi tiêu',
                 data: expensesData,
-                backgroundColor: '#63ABFD',
-                borderColor: '#165BAA', // Border color for "expenses" bar
+                backgroundColor: '#FF7256',
+                borderColor: '#FF6A6A', // Border color for "expenses" bar
                 borderWidth: 3,
                 borderRadius: 8
             },
             {
-                label: 'Income',
+                label: 'Thu nhập',
                 data: incomeData,
-                backgroundColor: '#003380',
-                borderColor: '#63ABFD', // Border color for "expenses" bar
+                backgroundColor: '#90EE90',
+                borderColor: '#008B00', // Border color for "expenses" bar
                 borderWidth: 3,
                 borderRadius: 20
             },

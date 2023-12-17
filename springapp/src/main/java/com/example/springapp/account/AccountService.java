@@ -9,12 +9,14 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 @Service
 public class AccountService {
 
+    //Desgin Pattern: SINGLETON
     @Autowired
     UserRepository userRepository;
 
@@ -53,14 +55,17 @@ public class AccountService {
                         totalIncome += transaction.getAmount();
                     }
                 }
-                AccountResponseDto accountResponseDto = new AccountResponseDto(
-                        account.getAccountId(),
-                        account.getName(),
-                        account.getCurrentBalance(),
-                        account.getPaymentTypes(),
-                        totalExpenses,
-                        totalIncome
-                );
+
+                //Design Patter: BUILDER
+                AccountResponseDto accountResponseDto = AccountResponseDto.builder()
+                        .accountId(account.getAccountId())
+                        .name(account.getName())
+                        .currentBalance(account.getCurrentBalance())
+                        .paymentTypes(String.join(", ", account.getPaymentTypes()))
+                        .totalExpense(totalExpenses)
+                        .totalIncome(totalIncome)
+                        .build();
+
                 accountResponseDtoList.add(accountResponseDto);
             }
             return accountResponseDtoList;

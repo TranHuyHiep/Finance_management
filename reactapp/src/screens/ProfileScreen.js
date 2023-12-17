@@ -71,7 +71,7 @@ export default function ProfileScreen() {
               }}
             >
               <Text c={"dimmed"} fw={700} style={{ width: "100%" }}>
-                Name
+                Họ và tên
               </Text>
 
               <Space h="lg" />
@@ -88,7 +88,7 @@ export default function ProfileScreen() {
                   open();
                 }}
               >
-                Edit
+                Chỉnh sửa
               </Button>
             </div>
             <Space h="lg" />
@@ -121,7 +121,7 @@ export default function ProfileScreen() {
                   open();
                 }}
               >
-                Edit
+                Chỉnh sửa
               </Button>
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function ProfileScreen() {
             }}
           >
             <Text c={"dimmed"} fw={700} >
-              Profile Picture
+              Ảnh đại diện
             </Text>
             <div onClick={handleImageClick}>
               {currentUser.profileImage ? (
@@ -187,7 +187,7 @@ export default function ProfileScreen() {
                 type="file"
                 // onClick={open}
               >
-                Edit
+                Chỉnh sửa
               </Button>
             </div>
           </div>
@@ -197,7 +197,7 @@ export default function ProfileScreen() {
         <div style={{ marginTop: "10px", marginLeft: "10px" }}>
           <Space h="md" />
           <Text fw={700} fz="xl">
-            Others
+            Thông tin khác
           </Text>
           <Divider my="sm" />
           <Space h="lg" />
@@ -212,7 +212,7 @@ export default function ProfileScreen() {
               open();
             }}
           >
-            Change Password
+            Đổi mật khẩu
           </Button>
           <Space h="lg" />
           <Button
@@ -226,7 +226,7 @@ export default function ProfileScreen() {
               open();
             }}
           >
-            Delete Account
+            Xoá tài khoản
           </Button>
         </div>
         <Modal

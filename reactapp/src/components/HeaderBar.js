@@ -100,8 +100,8 @@ export default function HeaderBar(props) {
 
                                         </Menu.Target>
                                         <Menu.Dropdown >
-                                            <Menu.Item transitionProps={{ transition: 'slide-down', duration: 150 }} onClick={()=>{handleSetting()}} icon={<ProfileIcon style={{height:16,width:16}}/>}><Text size={"sm"}>Profile</Text></Menu.Item>
-                                            <Menu.Item transitionProps={{ transition: 'slide-down', duration: 150 }} onClick={()=>setDisplayConfirmLogout(true)} color="red" icon={<LogoutIcon style={{height:16,width:16}}/>}><Text size={"sm"}>Logout</Text></Menu.Item>
+                                            <Menu.Item transitionProps={{ transition: 'slide-down', duration: 150 }} onClick={()=>{handleSetting()}} icon={<ProfileIcon style={{height:16,width:16}}/>}><Text size={"sm"}>Thông tin cá nhân</Text></Menu.Item>
+                                            <Menu.Item transitionProps={{ transition: 'slide-down', duration: 150 }} onClick={()=>setDisplayConfirmLogout(true)} color="red" icon={<LogoutIcon style={{height:16,width:16}}/>}><Text size={"sm"}>Đăng xuất</Text></Menu.Item>
                                         </Menu.Dropdown>
                                     </Menu>
                                 }

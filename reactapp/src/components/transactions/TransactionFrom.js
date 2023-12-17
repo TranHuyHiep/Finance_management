@@ -42,7 +42,7 @@ export default function TransactionForm(props) {
     },
     validate: {
         amount: (value) => (
-            value !== '' ? null : 'Yêu cầu nhập số lượng'
+            value !== '' ? null : 'Yêu cầu nhập số tiền'
         ),
         accountId: (value) => (
             value !== '' ? null : 'Chọn tài khoản'
@@ -132,13 +132,13 @@ export default function TransactionForm(props) {
               <DateTimePicker
                   radius="md"
                   dropdownType="modal"
-                  valueFormat="DD MMM YYYY hh:mm A"
+                  valueFormat="DD/MM/YYYY hh:mm A"
                   label="Ngày và giờ"
                   placeholder="Chọn ngày và giờ"
                   {...form.getInputProps('dateTime')}
               />
               <TextInput radius="md" style={{ marginTop: 16 }}
-                         label="Số lượng"
+                         label="Số tiền"
                          placeholder="Ví dụ: 5,000 VND"
                          type='number'
                          {...form.getInputProps('amount')}

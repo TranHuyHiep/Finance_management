@@ -19,7 +19,21 @@ public interface TransactionRepository extends JpaRepository<Transaction,Integer
     List<Transaction> findByCategory(Integer id);
 
     @Query(value = "SELECT\n" +
-            "    subquery.month,\n" +
+            "    CASE subquery.month\n" +
+            "        WHEN 'January' THEN 'Tháng 1'\n" +
+            "        WHEN 'February' THEN 'Tháng 2'\n" +
+            "        WHEN 'March' THEN 'Tháng 3'\n" +
+            "        WHEN 'April' THEN 'Tháng 4'\n" +
+            "        WHEN 'May' THEN 'Tháng 5'\n" +
+            "        WHEN 'June' THEN 'Tháng 6'\n" +
+            "        WHEN 'July' THEN 'Tháng 7'\n" +
+            "        WHEN 'August' THEN 'Tháng 8'\n" +
+            "        WHEN 'September' THEN 'Tháng 9'\n" +
+            "        WHEN 'October' THEN 'Tháng 10'\n" +
+            "        WHEN 'November' THEN 'Tháng 11'\n" +
+            "        WHEN 'December' THEN 'Tháng 12'\n" +
+            "        ELSE subquery.month\n" +
+            "        END AS month," +
             "    COALESCE(expenses, 0) AS expenses,\n" +
             "    COALESCE(income, 0) AS income\n" +
             "FROM (\n" +

@@ -73,23 +73,23 @@ const budgetSlice = createSlice({
     extraReducers:{
         [addBudget.pending]:(state) => {
             state.addBudgetInProcess = true
-            console.log("Budget Add pending")
+            console.log("Ngân sách đã được thêm vào hàng chờ")
         },
         [addBudget.fulfilled]:(state,action) =>{
             state.addBudgetInProcess =false
             if(action.payload?.message ==="success"){
-                console.log("Budget Created")
+                console.log("Tạo ngân sách thành công")
                 notifications.show({
-                    title: 'Budget Created',
-                    message: 'your budget created successfuly!!',
+                    title: 'Ngân sách đã được tạo',
+                    message: 'Ngân sách của bạn đã được tạo thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
                 })
             }else if(_.isEmpty(action.payload)){
                 notifications.show({
-                    title:"Something went wrong",
-                    message: 'Please try again!!',
+                    title:"Đã có lỗi xảy ra",
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -107,28 +107,28 @@ const budgetSlice = createSlice({
         },
         [addBudget.rejected]:(state)=>{
             state.addBudgetInProcess = false
-            console.log("Budget Create failed")
-            alert("Budget Create failed,Try again")
+            console.log("Tạo ngân sách thất bại")
+            alert("Tạo mới ngân sách thất bại, vui lòng thử lại")
         },
         [editBudget.pending]:(state) => {
             state.addBudgetEditInProcess = true
-            console.log("Budget Add pending")
+            console.log("Ngân sách đã được thêm vào hàng chờ")
         },
         [editBudget.fulfilled]:(state,action) =>{
             state.addBudgetEditInProcess =false
             if(action.payload?.message ==="success"){
-                console.log("Budget Created")
+                console.log("Ngân sách đã được cập nhật")
                 notifications.show({
-                    title: 'Budget Updated',
-                    message: 'your budget update successfuly!!',
+                    title: 'Ngân sách đã được cập nhật',
+                    message: 'Ngân sách của bạn đã được cập nhật thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
                 })
             }else if(_.isEmpty(action.payload)){
                 notifications.show({
-                    title:"Something went wrong",
-                    message: 'Please try again!!',
+                    title:"Đã có lỗi xảy ra",
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -145,26 +145,26 @@ const budgetSlice = createSlice({
         },
         [editBudget.rejected]:(state)=>{
             state.addBudgetEditInProcess = false
-            console.log("Budget update failed")
-            alert("Budget update failed,Try again")
+            console.log("Chỉnh sửa ngân sách thất bại")
+            alert("Cập nhật ngân sách thất bại, thử lại?")
         },
         [removeBudget.pending]:(state) => {
-            console.log("Budget Add pending")
+            console.log("Ngân sách được thêm vào hàng chờ")
         },
         [removeBudget.fulfilled]:(state,action) =>{
             if(action.payload?.message ==="success"){
-                console.log("Budget Created")
+                console.log("Ngân sách đã được tạo")
                 notifications.show({
-                    title: 'Budget removed',
-                    message: 'your budget remove successfuly!!',
+                    title: 'Ngân sách đã được xoá',
+                    message: 'Ngân sách của bạn được xoá thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
                 })
             }else if(_.isEmpty(action.payload)){
                 notifications.show({
-                    title:"Something went wrong",
-                    message: 'Please try again!!',
+                    title:"Đã có lỗi xảy ra",
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -180,18 +180,18 @@ const budgetSlice = createSlice({
             }
         },
         [removeBudget.rejected]:(state)=>{
-            console.log("Budget remove failed")
-            alert("Budget remove failed,Try again")
+            console.log("Xoá ngân sách thất bại")
+            alert("Xoá ngân sách thất bại, thử lại?")
         },
         [fetchBudget.pending]:(state) => {
             state.fetchBudgetInProcess = true
-            console.log("Budget fetch pending")
+            console.log("Ngân sách được thêm vào hàng chờ đồng bộ")
         },
         [fetchBudget.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
                 console.log(state.budgetList)
                 state.budgetList = action.payload.data
-                console.log("Budget fetched")
+                console.log("Ngân sách đã được đồng bộ")
                 console.log(state.budgetList)
             }else {
                 console.log(action.payload.message)
@@ -200,7 +200,7 @@ const budgetSlice = createSlice({
         },
         [fetchBudget.rejected]:(state)=>{
             state.fetchBudgetInProcess = false
-            console.log("Budget fetch failed")
+            console.log("Ngân sách đồng bộ thất bại")
         },
     }
 })

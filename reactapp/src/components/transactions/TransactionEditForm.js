@@ -68,7 +68,7 @@ export default function TransactionEditForm(props) {
         form.setFieldValue('dateTime',date)
         form.setFieldValue('type',props?.element?.category?.type)
         form.setFieldValue('accountId',props?.element?.account?.accountId)
-    },[dispatch, form, props?.element?.account?.accountId, props?.element?.amount, props?.element?.category?.categoryId, props?.element?.category?.type, props?.element?.dateTime, props?.element?.description, props?.element?.paymentType, token])
+    },[dispatch, props?.element?.account?.accountId, props?.element?.amount, props?.element?.category?.categoryId, props?.element?.category?.type, props?.element?.dateTime, props?.element?.description, props?.element?.paymentType, token])
 
 
     function handleDiscardCancel(){
@@ -158,9 +158,9 @@ export default function TransactionEditForm(props) {
                                 <DateTimePicker
                                     radius="md"
                                     dropdownType="modal"
-                                    valueFormat="DD MMM YYYY hh:mm A"
+                                    valueFormat="DD/MM/YYYY hh:mm A"
                                     label="Date and time"
-                                    placeholder="Pick date and time"
+                                    placeholder="Chọn ngày và giờ"
                                     maw={400}
                                     mx="auto"
                                     {...form.getInputProps('dateTime')}

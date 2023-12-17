@@ -1,28 +1,28 @@
 
 import { Grid, Text, Paper } from '@mantine/core';
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function AccountFeature() {
     const accountList = useSelector(state => state.account.accountList)
-    function handleTotalAccount(){
+    function handleTotalAccount() {
         return accountList.length
     }
 
-    function handleTotalIncome(){
+    function handleTotalIncome() {
         return accountList.reduce(
             (accumulator, currentValue) => accumulator + currentValue.totalIncome,
             0
         );
     }
 
-    function handleTotalExpense(){
+    function handleTotalExpense() {
         return accountList.reduce(
-            (accumulator, currentValue) => accumulator + currentValue.totalExpenses,
+            (accumulator, currentValue) => accumulator + currentValue.totalExpense,
             0
         );
     }
 
-    function handleTotalBalanace(){
+    function handleTotalBalanace() {
         return accountList.reduce(
             (accumulator, currentValue) => accumulator + currentValue.currentBalance,
             0
@@ -30,7 +30,7 @@ export default function AccountFeature() {
     }
 
     return (
-        <div style={{marginBottom:10}}>
+        <div style={{ marginBottom: 10 }}>
             <Grid >
                 <Grid.Col span={6} md={"content"}>
                     <Paper radius="md" miw={"180px"} p="md" withBorder>
@@ -41,7 +41,7 @@ export default function AccountFeature() {
                     </Paper>
                 </Grid.Col>
                 <Grid.Col span={6} md={"content"}>
-                    <Paper  radius="md" miw={"180px"} p="md" withBorder>
+                    <Paper radius="md" miw={"180px"} p="md" withBorder>
                         <Text size={"lg"} fw={700}>{`${handleTotalIncome().toLocaleString("en-US")} VND`}</Text>
                         <Text size={"sm"} fw={700} c="dimmed">
                             Tổng thu
@@ -57,8 +57,12 @@ export default function AccountFeature() {
                     </Paper>
                 </Grid.Col>
                 <Grid.Col span={6} md={"content"}>
-                    <Paper  radius="md" miw={"180px"} p="md" withBorder>
-                        <Text size={"lg"} fw={700} style={{color: "#26AB35"}}>{`${handleTotalBalanace().toLocaleString("en-US")} VND`}</Text>
+                    <Paper radius="md" miw={"180px"} p="md" withBorder>
+                        {handleTotalBalanace() > 0 ?
+                            <Text size={"lg"} fw={700} style={{ color: "#26AB35" }}>{`${handleTotalBalanace().toLocaleString("en-US")} VND`}</Text>
+                            :
+                            <Text size={"lg"} fw={700} style={{ color: "#FF4040" }}>{`${handleTotalBalanace().toLocaleString("en-US")} VND`}</Text>
+                        }
                         <Text size={"sm"} fw={700} c="dimmed">
                             Tổng thu chi
                         </Text>

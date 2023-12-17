@@ -70,23 +70,23 @@ const goalSlice = createSlice({
     extraReducers:{
         [addGoal.pending]:(state) => {
             state.addGoalInProcess = true
-            console.log("Goal Add pending")
+            console.log("Thêm mục tiêu vào hàng đợi")
         },
         [addGoal.fulfilled]:(state,action) =>{
             state.addGoalInProcess =false
             if(action.payload?.message ==="success"){
-                console.log("Goal Created")
+                console.log("Mục tiêu đã được thêm")
                 notifications.show({
-                    title: 'Goal Created',
-                    message: 'your goal created successfuly!!',
+                    title: 'Mục tiêu đã được thêm',
+                    message: 'Mục tiêu của bạn đã được tạo thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
                 })
             }else if(_.isEmpty(action.payload)){
                 notifications.show({
-                    title:"Something went wrong",
-                    message: 'Please try again!!',
+                    title:"Đã có lỗi xảy ra",
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -104,28 +104,28 @@ const goalSlice = createSlice({
         },
         [addGoal.rejected]:(state)=>{
             state.addGoalInProcess = false
-            console.log("Goal Create failed")
-            alert("Goal Create failed,Try again")
+            console.log("Tạo mục tiêu thất bại")
+            alert("Tạo mục tiêu thất bại, thử lại?")
         },
         [editGoal.pending]:(state) => {
             state.addGoalEditInProcess = true
-            console.log("Goal Add pending")
+            console.log("Thêm mục tiêu vào hàng chờ")
         },
         [editGoal.fulfilled]:(state,action) =>{
             state.addGoalEditInProcess =false
             if(action.payload?.message ==="success"){
-                console.log("Goal Created")
+                console.log("Mục tiêu đã được cập nhật")
                 notifications.show({
-                    title: 'Goal Updated',
-                    message: 'your goal update successfuly!!',
+                    title: 'Mục tiêu đã được cập nhật',
+                    message: 'Mục tiêu của bạn cập nhật thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
                 })
             }else if(_.isEmpty(action.payload)){
                 notifications.show({
-                    title:"Something went wrong",
-                    message: 'Please try again!!',
+                    title:"Đã có lỗi xảy ra",
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -142,26 +142,26 @@ const goalSlice = createSlice({
         },
         [editGoal.rejected]:(state)=>{
             state.addGoalEditInProcess = false
-            console.log("Goal update failed")
-            alert("Goal update failed,Try again")
+            console.log("Cập nhật mục tiêu thất bại")
+            alert("Mục tiêu của bạn cập nhật thất bại, thử lại?")
         },
         [removeGoal.pending]:(state) => {
-            console.log("Goal Add pending")
+            console.log("Thêm mục tiêu vào hàng chờ")
         },
         [removeGoal.fulfilled]:(state,action) =>{
             if(action.payload?.message ==="success"){
-                console.log("Goal Created")
+                console.log("Mục tiêu đã được xoá")
                 notifications.show({
-                    title: 'Goal removed',
-                    message: 'your goal remove successfuly!!',
+                    title: 'Mục tiêu đã được xoá',
+                    message: 'Mục tiêu của bạn được xoá thành công!!',
                     icon: <SuccessIcon />,
                     radius:"lg",
                     autoClose: 5000,
                 })
             }else if(_.isEmpty(action.payload)){
                 notifications.show({
-                    title:"Something went wrong",
-                    message: 'Please try again!!',
+                    title:"Đã có lỗi xảy ra",
+                    message: 'Vui lòng thử lại!!',
                     radius:"lg",
                     color:"red",
                     autoClose: 5000,
@@ -177,18 +177,18 @@ const goalSlice = createSlice({
             }
         },
         [removeGoal.rejected]:(state)=>{
-            console.log("Goal remove failed")
-            alert("Goal remove failed,Try again")
+            console.log("Xoá mục tiêu thất bại")
+            alert("Xoá mục tiêu thất bại, thử lại?")
         },
         [fetchGoal.pending]:(state) => {
             state.fetchGoalInProcess = true
-            console.log("Goal fetch pending")
+            console.log("Mục tiêu đang được đồng bộ....")
         },
         [fetchGoal.fulfilled]:(state,action) =>{
             if(action.payload.message ==="success"){
                 console.log(state.goalList)
                 state.goalList = action.payload.data
-                console.log("Goal fetched")
+                console.log("Mục tiêu đã được đồng bộ")
                 console.log(state.goalList)
             }else {
                 console.log(action.payload.message)
@@ -197,7 +197,7 @@ const goalSlice = createSlice({
         },
         [fetchGoal.rejected]:(state)=>{
             state.fetchGoalInProcess = false
-            console.log("Goal fetch failed")
+            console.log("Mục tiêu đồng bộ thất bại")
         },
     }
 })
