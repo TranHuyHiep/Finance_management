@@ -61,7 +61,7 @@ public class BudgetController {
             Budget createdBudget = budgetService.createBudget(budgetRequestDto,userName);
             return new ResponseEntity<>(new BaseResponceDto("success",createdBudget), HttpStatus.CREATED);
         }else {
-            return ResponseEntity.ok(new BaseResponceDto("Already exist"));
+            return ResponseEntity.ok(new BaseResponceDto("Đã tồn tại"));
         }
     }
 

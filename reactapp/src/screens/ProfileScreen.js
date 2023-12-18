@@ -8,8 +8,6 @@ import {
   Container, Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import EditNameForm from "../components/settings/EditNameForm";
-import EditEmailForm from "../components/settings/EditEmailForm";
 import ChangePasswordForm from "../components/settings/ChangePasswordForm";
 import DeleteAccount from "../components/settings/DeleteAccount";
 import { useSelector } from "react-redux";
@@ -199,17 +197,7 @@ export default function ProfileScreen() {
                   borderColor: "rgba(0,0,0,0.2)",
                   borderRadius: "1000px",
                 }} />
-                // <img
-                //   src={logo}
-                //   alt="Default image"
-                //   style={{
-                //     width: "150px",
-                //     height: "150px",
-                //     borderRadius: "1000px",
-                //   }}
-                // />
               )}
-
               <input
                 type="file"
                 ref={inputRef}
@@ -220,7 +208,7 @@ export default function ProfileScreen() {
                 variant="default"
                 color="dark"
                 radius="md"
-                style={{ position: "absolute", bottom: "0", left: "100px" }}
+                style={{ position: "absolute", top: "170px", left: "70px" }}
                 type="file"
               // onClick={open}
               >
@@ -244,33 +232,31 @@ export default function ProfileScreen() {
             radius="md"
             style={{ width: "200px" }}
             onClick={() => {
-              setFormName("Change Passwod")
+              setFormName("Đổi mật khẩu")
               setForm(<ChangePasswordForm close={close} />);
               open();
             }}
           >
             Đổi mật khẩu
           </Button>
-          <Space h="lg" />
           <Button
             variant="default"
             color="dark"
             radius="md"
-            style={{ width: "200px" }}
+            style={{ width: "200px", marginLeft: '50px' }}
             onClick={() => {
-              setFormName("Delete Account")
+              setFormName("Xoá tài khoản")
               setForm(<DeleteAccount />);
               open();
             }}
           >
             Xoá tài khoản
           </Button>
-          <Space h="lg" />
           <Button
             variant="default"
             color="dark"
             radius="md"
-            style={{ width: "200px" }}
+            style={{ width: "200px", marginLeft: '50px' }}
             onClick={() => {
               setFormName("Thay đổi thông tin")
               setForm(<EditInfoForm close={close} />);

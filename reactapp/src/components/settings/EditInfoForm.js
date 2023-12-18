@@ -8,14 +8,6 @@ import { DatePickerInput } from "@mantine/dates";
 function EditInfoForm({ close }) {
   const currentUser = useSelector(state => state.user.currentUser)
 
-  console.log('First Name:', currentUser.firstName);
-  console.log('Last Name:', currentUser.lastName);
-  console.log('Email:', currentUser.email);
-  // console.log('profileImage:', currentUser.profileImage);
-  console.log('Birthday:', currentUser.birthday);
-  console.log('Gender:', currentUser.gender);
-  console.log('Phone:', currentUser.phone);
-
   const form = useForm({
     initialValues: {
       firstName: currentUser.firstName,
@@ -34,7 +26,19 @@ function EditInfoForm({ close }) {
       profileImage: (value) => (value !== "" ? null : "Chọn ảnh"),
       birthday: (value) => (value instanceof Date ? null : "Chọn ngày sinh"),
       gender: (value) => (value !== "" ? null : "Chọn giới tính"),
-      phone: (value) => (value !== "" ? null : "Chọn số điện thoại"),
+      phone: (value) => {
+        if (value === "") {
+          return "Nhập số điện thoại";
+        }
+    
+        // Kiểm tra số điện thoại chỉ chứa số và bắt đầu bằng số 0
+        const phoneRegex = /^0[0-9]*$/;
+        if (!phoneRegex.test(value)) {
+          return "Số điện thoại không hợp lệ";
+        }
+    
+        return null; // Hợp lệ
+      },
     },
   });
 
@@ -81,7 +85,8 @@ function EditInfoForm({ close }) {
         format="dd/mm/yyyy"
         {...form.getInputProps("birthday")}
       />
-      <div style={{ marginTop: 16, display: "flex", alignItems: "center" }}>
+      <p style={{fontWeight: '10px', fontSize: '15px'}}>Giới tính: </p>
+      <div style={{ display: "flex", alignItems: "center" }}>
         <Radio
           label="Nam"
           value="Nam"

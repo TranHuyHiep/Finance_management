@@ -45,7 +45,7 @@ export default function ChangePasswordForm({ close }) {
         radius="md"
         style={{ marginTop: 16 }}
         withAsterisk
-        label="Old Password"
+        label="Mật khẩu cũ"
         type="password"
         {...form.getInputProps("oldPassword")}
       />
@@ -53,7 +53,7 @@ export default function ChangePasswordForm({ close }) {
         radius="md"
         style={{ marginTop: 16 }}
         withAsterisk
-        label="New Password"
+        label="Mật khẩu mới"
         type="password"
         {...form.getInputProps("password")}
       />
@@ -61,13 +61,13 @@ export default function ChangePasswordForm({ close }) {
         radius="md"
         style={{ marginTop: 16 }}
         withAsterisk
-        label="Confirm Password"
+        label="Xác nhận mật khẩu mới"
         type="password"
         {...form.getInputProps("confirmPassword")}
       />
       <Group style={{ marginTop: 36, marginBottom: 36 }}>
         <Button radius="md" fullWidth type="submit">
-          Update
+          Cập nhật
         </Button>
       </Group>
     </form>

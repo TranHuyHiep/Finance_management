@@ -103,12 +103,12 @@ public class UserController {
 	public ResponseEntity<BaseResponceDto> sendVerificationEmail(@RequestParam(value = "email") String email){
 		try{
 			if(userRepository.existsByEmail(email)) {
-				return ResponseEntity.badRequest().body(new BaseResponceDto("User already exists", null));
+				return ResponseEntity.badRequest().body(new BaseResponceDto("Người dùng đã tồn tại", null));
 			}
 			userService.sendVerificationEmail(email);
 			return ResponseEntity.ok(new BaseResponceDto("success"));
 		} catch (Exception e) {
-			return ResponseEntity.badRequest().body(new BaseResponceDto("Failed Try again"));
+			return ResponseEntity.badRequest().body(new BaseResponceDto("Thất bại, hãy thử lại"));
 		}
 	}
 

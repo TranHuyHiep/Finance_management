@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public ResponseEntity<BaseResponceDto> register(UserEntity user) {
 		if(userRepository.existsByEmail(user.getEmail())) {
-			return new ResponseEntity<>(new BaseResponceDto("User already exists",null), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(new BaseResponceDto("Người dùng đã tồn tại",null), HttpStatus.BAD_REQUEST);
 		}
 		
 		user.setPassword(passwordEncoder.encode((user.getPassword())));

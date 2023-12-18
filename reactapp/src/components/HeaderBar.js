@@ -123,14 +123,14 @@ export default function HeaderBar(props) {
                         blur: 3,
                     }}
                     title={<Title style={{ marginLeft: 10 }} order={3}>
-                        Confirm Logout
+                        Xác nhận đăng xuất
                     </Title>}
                 >
                     <Container>
-                        <Text fz="lg">Are you sure you want to Logout from your account?</Text>
+                        <Text fz="lg">Bạn có chắc muốn đăng xuất?</Text>
                         <Group position="right" mt="md">
-                            <Button radius="md" onClick={()=>{setDisplayConfirmLogout(false)}} variant={"default"}>No, Cancel</Button>
-                            <Button radius="md" onClick={()=>{handleLogout()}} color='red'>Yes, Logout</Button>
+                            <Button radius="md" onClick={()=>{setDisplayConfirmLogout(false)}} variant={"default"}>Không, huỷ bỏ</Button>
+                            <Button radius="md" onClick={()=>{handleLogout()}} color='red'>Có, đăng xuất</Button>
                         </Group>
                     </Container>
 

@@ -59,18 +59,18 @@ public class DatabaseInitializer implements CommandLineRunner {
             saveUser();
             if(savedUser != null){
                 //Expenses Category
-                saveCategory(savedUser,"Food","expense");
-                saveCategory(savedUser,"Groceries","expense");
-                saveCategory(savedUser,"Rent","expense");
-                saveCategory(savedUser,"Utilities","expense");
-                saveCategory(savedUser,"Debt Payments","expense");
+                saveCategory(savedUser,"Đồ ăn","expense");
+                saveCategory(savedUser,"Tạp hoá","expense");
+                saveCategory(savedUser,"Thuê nhà","expense");
+                saveCategory(savedUser,"Tiện ích","expense");
+                saveCategory(savedUser,"Trả nợ","expense");
 
                 //Income Category
-                saveCategory(savedUser,"Salary","income");
-                saveCategory(savedUser,"Investment Income","income");
-                saveCategory(savedUser,"Freelance ","income");
-                saveCategory(savedUser,"Commission and Bonuses","income");
-                saveCategory(savedUser,"Annuities ","income");
+                saveCategory(savedUser,"Lương","income");
+                saveCategory(savedUser,"Đầu tư","income");
+                saveCategory(savedUser,"Tự do ","income");
+                saveCategory(savedUser,"Hoa hồng","income");
+                saveCategory(savedUser,"Lãi định kì","income");
 
                 //Account Create
                 saveAccount(savedUser,"Cash", List.of("other"));
