@@ -117,9 +117,6 @@ public class UserServiceImpl implements UserService {
 		user.setFirstName(profileInfoDto.getFirstName());
 		user.setLastName(profileInfoDto.getLastName());
 		user.setEmail(profileInfoDto.getEmail());
-		if(profileInfoDto.getProfileImage() != null) {
-			user.setProfileImage(profileInfoDto.getProfileImage());
-		}
 		user.setBirthday(profileInfoDto.getBirthday());
 		user.setGender(profileInfoDto.getGender());
 		user.setPhone(profileInfoDto.getPhone());

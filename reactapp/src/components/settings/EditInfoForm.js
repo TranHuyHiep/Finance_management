@@ -1,12 +1,14 @@
 import { Button, Group, TextInput, Radio } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import React from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editInfo, validateToken } from "../../features/userSlice";
+import { editImage, editInfo, validateToken } from "../../features/userSlice";
 import { DatePickerInput } from "@mantine/dates";
+import { ReactComponent as AvatarIcon } from "../../assets/User_duotone.svg";
 
 function EditInfoForm({ close }) {
   const currentUser = useSelector(state => state.user.currentUser)
+  const inputRef = useRef(null);
 
   const form = useForm({
     initialValues: {
@@ -30,13 +32,13 @@ function EditInfoForm({ close }) {
         if (value === "") {
           return "Nhập số điện thoại";
         }
-    
+
         // Kiểm tra số điện thoại chỉ chứa số và bắt đầu bằng số 0
         const phoneRegex = /^0[0-9]*$/;
         if (!phoneRegex.test(value)) {
           return "Số điện thoại không hợp lệ";
         }
-    
+
         return null; // Hợp lệ
       },
     },
@@ -52,10 +54,47 @@ function EditInfoForm({ close }) {
     await dispatch(validateToken(token));
     close();
   }
-
+  const handleImageClick = () => {
+    inputRef.current.click();
+  };
+  const handleImageChange = async (event) => {
+    const file = event.target.files[0];
+    await dispatch(editImage({ image: file, token: token }));
+    await dispatch(validateToken(token));
+  };
 
   return (
     <form onSubmit={form.onSubmit((values) => handleEditName(values))}>
+      <div onClick={handleImageClick}>
+        {currentUser.profileImage ? (
+          <img
+            src={`data:image/jpeg;base64,${currentUser.profileImage}`}
+            alt="Default"
+            style={{
+              width: "150px",
+              height: "150px",
+              objectFit: "contain",
+              borderRadius: "1000px",
+            }}
+          />
+        ) : (
+          <AvatarIcon style={{
+            width: 150,
+            height: 150,
+            objectFit: "contain",
+            borderStyle: "solid",
+            borderWidth: 1,
+            borderColor: "rgba(0,0,0,0.2)",
+            borderRadius: "1000px",
+          }} />
+        )}
+        <input
+          type="file"
+          ref={inputRef}
+          onChange={handleImageChange}
+          style={{ display: "none" }}
+        />
+      </div>
       <TextInput
         radius="md"
         style={{ marginTop: 16 }}
@@ -85,7 +124,7 @@ function EditInfoForm({ close }) {
         format="dd/mm/yyyy"
         {...form.getInputProps("birthday")}
       />
-      <p style={{fontWeight: '10px', fontSize: '15px'}}>Giới tính: </p>
+      <p style={{ fontWeight: '10px', fontSize: '15px' }}>Giới tính: </p>
       <div style={{ display: "flex", alignItems: "center" }}>
         <Radio
           label="Nam"
